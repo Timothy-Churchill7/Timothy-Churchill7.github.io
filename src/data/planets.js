@@ -51,7 +51,7 @@ export const PLANETS = [
         {
           heading: 'Amherst College — B.S. Mathematics & Chemistry',
           body: [
-            'Expected May 2029 · Cumulative GPA 3.9/4.0. Honors: the Walker Prize in Problem Solving, awarded to the top two first-year performers on a math exam. Relevant courses: Linear Algebra, Groups Rings & Fields, Thermodynamics & Kinematics.',
+            'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well but of doing good.',
             'Amherst represents a chance to explore a wide variety of interests in a place that puts community above all else and has a culture of doing good. Being able to run as part of a Division III program lets me compete at a high level without sacrificing my academic or extracurricular commitments.',
           ],
         },
