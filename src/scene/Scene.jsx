@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import Sun from './Sun.jsx'
+import Background from './Background.jsx'
 import Starfield from './Starfield.jsx'
 import Planets from './Planets.jsx'
 import Effects from './Effects.jsx'
@@ -51,9 +52,11 @@ export default function Scene({ onLockChange, onSelectChange }) {
     <SelectionContext.Provider
       value={{ selected, phase, focus, focusOnBody, markArrived, clearSelection }}
     >
-      <color attach="background" args={['#04060f']} />
-      <fog attach="fog" args={['#04060f', 350, 1500]} />
+      {/* Purple gradient dome instead of a flat black background. Fog tinted
+          to match so distant bodies fade into the violet rather than to black. */}
+      <fog attach="fog" args={['#1a1038', 350, 1500]} />
 
+      <Background />
       <Starfield />
       <Sun />
       <Planets />

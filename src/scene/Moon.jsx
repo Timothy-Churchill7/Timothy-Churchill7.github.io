@@ -30,6 +30,7 @@ export default function Moon({ moon, parentSlug }) {
     size: moon.size,
     content: moon.content,
     color: moon.color,
+    icon: moon.icon,
   }
 
   useFrame((state, delta) => {

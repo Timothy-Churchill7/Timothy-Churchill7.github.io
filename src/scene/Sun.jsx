@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import InfoPanel from './InfoPanel.jsx'
+import { useSelection } from '../interaction/SelectionContext.js'
+import { ABOUT_ME } from '../data/about.js'
 
 // ---------------------------------------------------------------------------
 // Sun — the "home" body at the center of the system.
@@ -45,6 +48,11 @@ export default function Sun() {
   const coreRef = useRef()
   const fallback = useMemo(makeFallbackTexture, [])
   const [headshot, setHeadshot] = useState(fallback)
+  const { selected, phase, clearSelection } = useSelection()
+
+  // The sun is clickable like any body: clicking it flies to it and opens the
+  // "About Me" panel (see src/data/about.js).
+  const isSelected = selected?.kind === 'sun'
 
   // Try to load the real headshot; keep the fallback if it isn't there yet.
   useEffect(() => {
@@ -70,7 +78,9 @@ export default function Sun() {
   })
 
   return (
-    <group>
+    // The whole sun group is tagged selectable, so clicking any part of it
+    // (core or glow) opens the About Me panel.
+    <group userData={{ select: ABOUT_ME }}>
       {/* Light source for the whole system. */}
       <pointLight
         position={[0, 0, 0]}
@@ -83,7 +93,11 @@ export default function Sun() {
       <ambientLight intensity={0.12} />
 
       {/* Rotating core + headshot overlay. */}
-      <group ref={coreRef}>
+      <group
+        ref={coreRef}
+        onPointerOver={() => (document.body.style.cursor = 'pointer')}
+        onPointerOut={() => (document.body.style.cursor = 'default')}
+      >
         {/* Glowing core. */}
         <mesh>
           <icosahedronGeometry args={[SUN_RADIUS, 6]} />
@@ -130,6 +144,16 @@ export default function Sun() {
           toneMapped={false}
         />
       </mesh>
+
+      {/* About Me panel — opens after the fly-to settles. */}
+      {isSelected && phase === 'open' && (
+        <InfoPanel
+          data={ABOUT_ME}
+          offsetY={SUN_RADIUS + 16}
+          distanceFactor={22}
+          onClose={clearSelection}
+        />
+      )}
     </group>
   )
 }

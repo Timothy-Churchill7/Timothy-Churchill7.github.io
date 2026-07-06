@@ -15,7 +15,7 @@ export default function Starfield() {
       radius={700} // how far out the star shell sits
       depth={110} // thickness of the star shell
       count={9000} // number of stars
-      factor={7} // star size factor (bigger = brighter/blooms more)
+      factor={8.5} // star size factor (bigger = brighter/blooms more)
       saturation={0}
       fade
       speed={0.4} // very slow twinkle/drift

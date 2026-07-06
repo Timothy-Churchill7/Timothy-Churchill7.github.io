@@ -43,6 +43,7 @@ export default function Planet({ planet }) {
     size: planet.size,
     content: planet.content,
     color: planet.color,
+    icon: planet.icon,
   }
 
   useFrame((state, delta) => {

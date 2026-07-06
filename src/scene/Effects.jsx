@@ -21,7 +21,7 @@ export default function Effects() {
         mipmapBlur
         radius={0.7}
       />
-      <Vignette eskil={false} offset={0.2} darkness={0.7} />
+      <Vignette eskil={false} offset={0.25} darkness={0.5} />
     </EffectComposer>
   )
 }
