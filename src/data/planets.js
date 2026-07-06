@@ -52,7 +52,7 @@ export const PLANETS = [
           heading: 'Amherst College — B.S. Mathematics & Chemistry',
           body: [
             'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well but of doing good.',
-            'Amherst represents a chance to explore a wide variety of interests in a place that puts community above all else and has a culture of doing good. Being able to run as part of a Division III program lets me compete at a high level without sacrificing my academic or extracurricular commitments.',
+            'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and make forever memories.',
           ],
         },
         {
