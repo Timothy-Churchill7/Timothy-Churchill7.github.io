@@ -51,13 +51,17 @@ export const PLANETS = [
         {
           heading: 'Amherst College — B.S. Mathematics & Chemistry',
           body: [
-            'Expected May 2029 · Cumulative GPA 3.9/4.0. Honors: the Walker Prize in Problem Solving, awarded to the top two first-year performers on a math exam. Relevant courses: Linear Algebra, Groups Rings & Fields, Thermodynamics & Kinematics.',
-            'Amherst represents a chance to explore a wide variety of interests in a place that puts community above all else and has a culture of doing good. Being able to run as part of a Division III program lets me compete at a high level without sacrificing my academic or extracurricular commitments.',
+            'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well but of doing good.', 
+            'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and make forever memories.',
+            'So far, I have a 3.9/4.0 GPA and my favorite classes have been The Cinema of Pedro Almodóvar and Groups, Rings, and Fields.',
+            'I have loved my college experience so far and I am so grateful to all my friends and professors that have made my experience what it is so far.'
           ],
         },
         {
           heading: 'Noble and Greenough School',
-          body: 'GPA 10.9/11 · National Merit Scholarship Finalist · 1580 SAT · Highest Academic Distinction. Three-time elected captain — skiing, cross country, and track & field. Relevant courses: Multivariable Calculus, Advanced Topics in Mathematics, Biochemistry Research, Artificial Intelligence.',
+          body: 'Nobles was an amazing place to go to high school: I was academically pushed and challenged, curiousity was encouraged and rewarded, and my teachers were passionate and really truly cared about me as a student and as a person.',
+            'The community was strong, and I had the chance to contribute to welcoming the next wave of kids as an elected captain of cross country, skiing, and track, and through my engagement with the Mental Health Club and other communities on campus.',
+          'I graduated Nobles with a 10.9/11 GPA earning Highest Academic Distinction. My favorite classes I took at Nobles were Advanced Topics in Mathematics, Biochemistry Research, and Artificial Intelligence.',
         },
       ],
     },
