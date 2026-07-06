@@ -11,7 +11,7 @@ export default function Planets() {
     <group>
       {PLANETS.map((planet) => (
         <group key={planet.slug}>
-          <OrbitRing radius={planet.orbitRadius} color={planet.color} opacity={0.16} />
+          <OrbitRing radius={planet.orbitRadius} color={planet.color} opacity={0.07} />
           <Planet planet={planet} />
         </group>
       ))}

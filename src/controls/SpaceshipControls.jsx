@@ -3,6 +3,7 @@ import { useThree, useFrame } from '@react-three/fiber'
 import { PointerLockControls } from '@react-three/drei'
 import * as THREE from 'three'
 import { FLIGHT } from '../config/camera.js'
+import { useSelection } from '../interaction/SelectionContext.js'
 
 // ---------------------------------------------------------------------------
 // SpaceshipControls
@@ -34,6 +35,7 @@ const KEY_MAP = {
 export default function SpaceshipControls({ onLockChange }) {
   const { camera } = useThree()
   const controlsRef = useRef()
+  const { selected } = useSelection()
 
   // Which actions are currently active (held keys).
   const keys = useRef({})
@@ -85,6 +87,14 @@ export default function SpaceshipControls({ onLockChange }) {
 
   // ---- per-frame flight integration ---------------------------------------
   useFrame((_, rawDelta) => {
+    // While a body is selected, the CameraController owns the camera (fly-to)
+    // or it's parked at the vantage reading the panel. Stand down and keep
+    // velocity at zero so free flight resumes cleanly (no lurch) on close.
+    if (selected) {
+      velocity.current.set(0, 0, 0)
+      return
+    }
+
     // Clamp delta so a stutter/tab-away doesn't launch the camera.
     const dt = Math.min(rawDelta, 0.05)
     const k = keys.current

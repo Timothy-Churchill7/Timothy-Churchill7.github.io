@@ -1,29 +1,35 @@
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
+import * as THREE from 'three'
 import Moon from './Moon.jsx'
 import InfoPanel from './InfoPanel.jsx'
 import { useSelection } from '../interaction/SelectionContext.js'
+import { proximityFactor } from '../config/camera.js'
 
 // ---------------------------------------------------------------------------
 // Planet — one resume category orbiting the sun, with optional moons.
 // ---------------------------------------------------------------------------
 // Structure:
 //   <orbitPivot>            rotates around the sun (the orbit)
-//     <group @ radius>      the planet's position on its orbit
+//     <bodyGroup @ radius>  the planet's position on its orbit (world center)
 //       <mesh/> (spins)     the body — tagged selectable via userData
-//       <label/> / <panel/> label when idle, info panel when selected
+//       <label/> / <panel/> label when idle, info panel once focused
 //       <Moon/> ...         moons live in this frame
 //
-// When this planet (or one of its moons) is selected we FREEZE the orbit so the
-// panel doesn't drift away. Orbit angle is integrated incrementally (+= delta)
-// so freezing/unfreezing never causes a positional jump.
+// Motion:
+//   • FREEZE the orbit when this planet (or one of its moons) is selected.
+//   • Otherwise ease the orbit speed down as the camera approaches, so a moving
+//     target is clickable (proximityFactor). Orbit angle is integrated
+//     incrementally so speed changes never cause a positional jump.
 // ---------------------------------------------------------------------------
 
 export default function Planet({ planet }) {
   const orbitPivot = useRef()
+  const bodyGroup = useRef()
   const planetSpin = useRef()
-  const { selected, setSelected } = useSelection()
+  const worldPos = useMemo(() => new THREE.Vector3(), [])
+  const { selected, phase, clearSelection } = useSelection()
 
   const isSelected = selected?.kind === 'planet' && selected.slug === planet.slug
   // Freeze if this planet is selected OR one of its moons is selected.
@@ -34,14 +40,21 @@ export default function Planet({ planet }) {
     kind: 'planet',
     slug: planet.slug,
     parentSlug: null,
+    size: planet.size,
     content: planet.content,
     color: planet.color,
   }
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     const d = Math.min(delta, 0.05)
     if (orbitPivot.current && !frozen) {
-      orbitPivot.current.rotation.y += d * planet.orbitSpeed
+      let speed = planet.orbitSpeed
+      if (bodyGroup.current) {
+        bodyGroup.current.getWorldPosition(worldPos)
+        const dist = worldPos.distanceTo(state.camera.position)
+        speed *= proximityFactor(dist, planet.size)
+      }
+      orbitPivot.current.rotation.y += d * speed
     }
     if (planetSpin.current) {
       planetSpin.current.rotation.y += d * (planet.spinSpeed ?? 0.2)
@@ -50,7 +63,7 @@ export default function Planet({ planet }) {
 
   return (
     <group ref={orbitPivot} rotation={[0, planet.initialAngle, 0]}>
-      <group position={[planet.orbitRadius, 0, 0]}>
+      <group ref={bodyGroup} position={[planet.orbitRadius, 0, 0]}>
         {/* Spinning, clickable body. */}
         <mesh
           ref={planetSpin}
@@ -69,7 +82,7 @@ export default function Planet({ planet }) {
           />
         </mesh>
 
-        {/* Idle label — hidden while its panel is open. */}
+        {/* Idle label — hidden once this planet is focused. */}
         {!isSelected && (
           <Html
             position={[0, planet.size + 3, 0]}
@@ -82,13 +95,13 @@ export default function Planet({ planet }) {
           </Html>
         )}
 
-        {/* Info panel — anchored beside/above the planet when selected. */}
-        {isSelected && (
+        {/* Info panel — opens only after the camera has flown in and settled. */}
+        {isSelected && phase === 'open' && (
           <InfoPanel
             data={selectData}
             offsetY={planet.size + 8}
             distanceFactor={14}
-            onClose={() => setSelected(null)}
+            onClose={clearSelection}
           />
         )}
 

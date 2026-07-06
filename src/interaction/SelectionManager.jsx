@@ -4,32 +4,32 @@ import * as THREE from 'three'
 import { useSelection } from './SelectionContext.js'
 
 // ---------------------------------------------------------------------------
-// SelectionManager — turns clicks into planet/moon selections.
+// SelectionManager — turns clicks into planet/moon selections (fly-to focus).
 // ---------------------------------------------------------------------------
 // Two aiming modes so it feels right whether you're flying or not:
-//   • Flying (pointer locked): raycast from screen CENTER (the crosshair). Fly
-//     toward a body, click, and the thing under the reticle is selected.
+//   • Flying (pointer locked): raycast from screen CENTER (the crosshair).
 //   • Cursor (unlocked): raycast from the mouse position, like a normal click.
 //
-// Clicking a body: opens its panel, and — if we were flying — releases pointer
-// lock so the cursor is available to read/close the panel (and so mouse-look
-// stops fighting the reader). We swallow that click so drei's PointerLock
-// controls don't immediately re-lock.
+// Clicking a body: kicks off the fly-to (Scene.focusOnBody) and — if we were
+// flying — releases pointer lock so the cursor is free to read/close the panel
+// once the camera arrives. We swallow that click so drei's PointerLockControls
+// don't immediately re-lock.
 //
-// Clicking empty space: dismisses any open panel. We DON'T swallow it, so drei
-// re-locks and you're flying again — "click away to resume."
+// Clicking empty space: dismisses any open selection. We DON'T swallow it, so
+// drei re-locks and you're flying again from wherever you are — "click away."
 //
-// The listener runs in the CAPTURE phase on the canvas, ahead of drei's own
-// click-to-lock handler, which is what lets us selectively block re-locking.
+// Runs in the CAPTURE phase on the canvas, ahead of drei's click-to-lock
+// handler, which is what lets us selectively block re-locking.
 // ---------------------------------------------------------------------------
 
 export default function SelectionManager() {
-  const { selected, setSelected } = useSelection()
+  const { selected, focusOnBody, clearSelection } = useSelection()
   const { camera, gl, scene } = useThree()
 
   useEffect(() => {
     const raycaster = new THREE.Raycaster()
     const ndc = new THREE.Vector2()
+    const worldPos = new THREE.Vector3()
     const el = gl.domElement
 
     const onClick = (e) => {
@@ -50,11 +50,13 @@ export default function SelectionManager() {
 
       // Walk up from the first hit to find a tagged selectable object.
       let picked = null
+      let pickedObj = null
       for (const hit of hits) {
         let o = hit.object
         while (o) {
           if (o.userData?.select) {
             picked = o.userData.select
+            pickedObj = o
             break
           }
           o = o.parent
@@ -63,21 +65,23 @@ export default function SelectionManager() {
       }
 
       if (picked) {
-        setSelected(picked)
+        // Use the body's current world center so the vantage is framed on it.
+        pickedObj.getWorldPosition(worldPos)
+        focusOnBody(picked, worldPos.toArray(), camera.position.toArray())
         if (locked) document.exitPointerLock()
         // Prevent drei's PointerLockControls from re-locking on this same click.
         e.stopImmediatePropagation()
         e.preventDefault()
       } else if (selected) {
-        // Clicked empty space with a panel open -> dismiss it.
+        // Clicked empty space with a selection open -> dismiss it.
         // (Not swallowed: drei will re-lock so flying resumes.)
-        setSelected(null)
+        clearSelection()
       }
     }
 
     el.addEventListener('click', onClick, { capture: true })
     return () => el.removeEventListener('click', onClick, { capture: true })
-  }, [camera, gl, scene, selected, setSelected])
+  }, [camera, gl, scene, selected, focusOnBody, clearSelection])
 
   return null
 }
