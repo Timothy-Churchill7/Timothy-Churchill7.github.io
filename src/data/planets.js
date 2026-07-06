@@ -54,7 +54,7 @@ export const PLANETS = [
             'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well but of doing good.', 
             'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and make forever memories.',
             'So far, I have a 3.9/4.0 GPA and my favorite classes have been The Cinema of Pedro Almodóvar and Groups, Rings, and Fields.',
-            'I have loved my college experience so far and I am so grateful to all my friends and professors that have made my experience what it is so far.'
+            'I have loved my college experience so far and I am so grateful to all my friends and professors that have made my experience what it is so far.',
           ],
         },
         {
