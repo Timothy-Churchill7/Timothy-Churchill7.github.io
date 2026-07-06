@@ -3,7 +3,6 @@ import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
 import * as THREE from 'three'
 import Moon from './Moon.jsx'
-import BodyBadge from './BodyBadge.jsx'
 import { useSelection } from '../interaction/SelectionContext.js'
 import { useIconTexture } from './useIconTexture.js'
 import { generateMoonOrbits } from './moonOrbits.js'
@@ -64,26 +63,38 @@ export default function Planet({ planet }) {
   return (
     <group ref={orbitPivot} rotation={[0, planet.initialAngle, 0]}>
       <group ref={bodyGroup} position={[planet.orbitRadius, 0, 0]}>
-        {/* Spinning, clickable low-poly body in its accent color. */}
-        <mesh
+        {/* Spinning, clickable body: an accent-colored core with the planet's
+            image mapped over it (like the sun's headshot) when it has one. */}
+        <group
           ref={planetSpin}
           userData={{ select: selectData }}
           onPointerOver={() => (document.body.style.cursor = 'pointer')}
           onPointerOut={() => (document.body.style.cursor = 'default')}
         >
-          <icosahedronGeometry args={[planet.size, 2]} />
-          <meshStandardMaterial
-            color={planet.color}
-            emissive={planet.color}
-            emissiveIntensity={isSelected ? 0.35 : 0.06}
-            flatShading
-            roughness={0.65}
-            metalness={0.15}
-          />
-        </mesh>
-
-        {/* The planet's logo/photo, shown on its face toward the camera. */}
-        <BodyBadge texture={texture} size={planet.size} />
+          <mesh>
+            <icosahedronGeometry args={[planet.size, 2]} />
+            <meshStandardMaterial
+              color={planet.color}
+              emissive={planet.color}
+              emissiveIntensity={isSelected ? 0.35 : 0.06}
+              flatShading
+              roughness={0.65}
+              metalness={0.15}
+            />
+          </mesh>
+          {texture && (
+            <mesh scale={1.01}>
+              <sphereGeometry args={[planet.size, 48, 48]} />
+              <meshBasicMaterial
+                map={texture}
+                transparent
+                opacity={0.9}
+                depthWrite={false}
+                toneMapped
+              />
+            </mesh>
+          )}
+        </group>
 
         {/* Idle label — hidden once this planet is focused. */}
         {!isSelected && (

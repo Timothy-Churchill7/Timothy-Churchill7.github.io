@@ -20,9 +20,11 @@ export default function Background() {
         depthTest: false,
         fog: false,
         uniforms: {
-          top: { value: new THREE.Color('#3a2168') }, // upper violet
-          middle: { value: new THREE.Color('#1c1140') }, // mid indigo-purple
-          bottom: { value: new THREE.Color('#0a0518') }, // deep near-black violet
+          // Lighter, "twilight sky" purple — roughly halfway between a dusk
+          // sky and deep space.
+          top: { value: new THREE.Color('#a488d8') }, // soft lavender
+          middle: { value: new THREE.Color('#7a63b8') }, // mid violet
+          bottom: { value: new THREE.Color('#4e3f86') }, // deeper violet
         },
         vertexShader: /* glsl */ `
           varying vec3 vDir;

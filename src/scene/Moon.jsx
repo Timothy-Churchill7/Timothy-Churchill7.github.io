@@ -2,7 +2,6 @@ import { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
 import * as THREE from 'three'
-import BodyBadge from './BodyBadge.jsx'
 import { useSelection } from '../interaction/SelectionContext.js'
 import { useIconTexture } from './useIconTexture.js'
 import { proximityFactor } from '../config/camera.js'
@@ -54,24 +53,35 @@ export default function Moon({ moon, parentSlug, orbit }) {
   return (
     <group ref={pivot} rotation={[0, angle, 0]}>
       <group ref={bodyGroup} position={[radius, 0, 0]}>
-        <mesh
+        <group
           userData={{ select: selectData }}
           onPointerOver={() => (document.body.style.cursor = 'pointer')}
           onPointerOut={() => (document.body.style.cursor = 'default')}
         >
-          <icosahedronGeometry args={[moon.size, 1]} />
-          <meshStandardMaterial
-            color={moon.color}
-            emissive={moon.color}
-            emissiveIntensity={isSelected ? 0.4 : 0.08}
-            flatShading
-            roughness={0.75}
-            metalness={0.1}
-          />
-        </mesh>
-
-        {/* The moon's logo/photo on its face toward the camera. */}
-        <BodyBadge texture={texture} size={moon.size} />
+          <mesh>
+            <icosahedronGeometry args={[moon.size, 1]} />
+            <meshStandardMaterial
+              color={moon.color}
+              emissive={moon.color}
+              emissiveIntensity={isSelected ? 0.4 : 0.08}
+              flatShading
+              roughness={0.75}
+              metalness={0.1}
+            />
+          </mesh>
+          {texture && (
+            <mesh scale={1.01}>
+              <sphereGeometry args={[moon.size, 32, 32]} />
+              <meshBasicMaterial
+                map={texture}
+                transparent
+                opacity={0.92}
+                depthWrite={false}
+                toneMapped
+              />
+            </mesh>
+          )}
+        </group>
 
         {!isSelected && (
           <Html

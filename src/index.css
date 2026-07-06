@@ -176,12 +176,12 @@ canvas {
 /* ---- Info panel (drei <Html transform sprite>, anchored to a body) ---- */
 .info-panel {
   position: relative;
-  width: 260px;
-  max-height: 460px;
+  width: 400px;
+  max-height: 700px;
   overflow-y: auto;
-  padding: 15px 16px 16px;
-  border-radius: 14px;
-  font-size: 12.5px;
+  padding: 24px 26px 26px;
+  border-radius: 18px;
+  font-size: 15px;
   background: rgba(16, 12, 34, 0.94);
   border: 1px solid color-mix(in srgb, var(--accent, #6f8fff) 40%, transparent);
   box-shadow:

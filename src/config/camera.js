@@ -70,20 +70,20 @@ export function computeVantage(objPos, camPos, size) {
   const forward = obj.clone().sub(position).normalize()
   const right = forward.clone().cross(UP).normalize()
 
-  // Panel sits out to the right of the body; aim between them so the body
-  // ends up on the left third and the panel fills the right.
-  const panelOffset = size * 1.3 + 11
+  // Panel sits out to the right of the body; aim well to the right so the body
+  // ends up on the far left and the large panel fills most of the frame.
+  const panelOffset = size * 1.0 + 12
   const panelAnchor = obj
     .clone()
     .addScaledVector(right, panelOffset)
-    .addScaledVector(UP, size * 0.15)
-  const lookAt = obj.clone().addScaledVector(right, panelOffset * 0.4)
+    .addScaledVector(UP, size * 0.05)
+  const lookAt = obj.clone().addScaledVector(right, panelOffset * 0.72)
 
   return {
     position: position.toArray(),
     lookAt: lookAt.toArray(),
     panelAnchor: panelAnchor.toArray(),
-    panelDistanceFactor: camDist * 0.4,
+    panelDistanceFactor: camDist * 1.15,
   }
 }
 
