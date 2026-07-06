@@ -33,7 +33,7 @@ function Bullets({ items }) {
   )
 }
 
-export default function InfoPanel({ data, offsetY, distanceFactor = 12, onClose }) {
+export default function InfoPanel({ data, distanceFactor = 12, onClose }) {
   const c = data.content
   const [iconOk, setIconOk] = useState(true)
   const iconUrl = data.icon ? `${import.meta.env.BASE_URL}${data.icon}` : null
@@ -44,7 +44,7 @@ export default function InfoPanel({ data, offsetY, distanceFactor = 12, onClose 
       transform
       sprite
       distanceFactor={distanceFactor}
-      position={[0, offsetY, 0]}
+      position={[0, 0, 0]}
       zIndexRange={[100, 0]}
       occlude={false}
       wrapperClass="info-panel-wrapper"

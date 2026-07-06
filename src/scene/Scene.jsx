@@ -4,6 +4,7 @@ import Background from './Background.jsx'
 import Starfield from './Starfield.jsx'
 import Planets from './Planets.jsx'
 import Effects from './Effects.jsx'
+import InfoPanel from './InfoPanel.jsx'
 import SpaceshipControls from '../controls/SpaceshipControls.jsx'
 import CameraController from '../controls/CameraController.jsx'
 import { SelectionContext } from '../interaction/SelectionContext.js'
@@ -64,6 +65,18 @@ export default function Scene({ onLockChange, onSelectChange }) {
       <SelectionManager />
       <CameraController />
       <SpaceshipControls onLockChange={onLockChange} />
+
+      {/* One info panel, anchored in world space to the RIGHT of the focused
+          body once the fly-to has settled. */}
+      {selected && phase === 'open' && focus?.panelAnchor && (
+        <group position={focus.panelAnchor}>
+          <InfoPanel
+            data={selected}
+            distanceFactor={focus.panelDistanceFactor}
+            onClose={clearSelection}
+          />
+        </group>
+      )}
 
       <Effects />
     </SelectionContext.Provider>

@@ -3,25 +3,23 @@ import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
 import * as THREE from 'three'
 import Moon from './Moon.jsx'
-import InfoPanel from './InfoPanel.jsx'
+import BodyBadge from './BodyBadge.jsx'
 import { useSelection } from '../interaction/SelectionContext.js'
+import { useIconTexture } from './useIconTexture.js'
+import { generateMoonOrbits } from './moonOrbits.js'
 import { proximityFactor } from '../config/camera.js'
 
 // ---------------------------------------------------------------------------
 // Planet — one resume category orbiting the sun, with optional moons.
 // ---------------------------------------------------------------------------
-// Structure:
-//   <orbitPivot>            rotates around the sun (the orbit)
-//     <bodyGroup @ radius>  the planet's position on its orbit (world center)
-//       <mesh/> (spins)     the body — tagged selectable via userData
-//       <label/> / <panel/> label when idle, info panel once focused
-//       <Moon/> ...         moons live in this frame
+// If the planet has an `icon`, the image is mapped onto the body (smooth
+// sphere); otherwise it's a flat-shaded low-poly sphere in its accent color.
+// Moons get varied, seeded-random orbit radii/speeds (see moonOrbits.js).
 //
-// Motion:
-//   • FREEZE the orbit when this planet (or one of its moons) is selected.
-//   • Otherwise ease the orbit speed down as the camera approaches, so a moving
-//     target is clickable (proximityFactor). Orbit angle is integrated
-//     incrementally so speed changes never cause a positional jump.
+// The orbit FREEZES while this planet (or one of its moons) is selected so the
+// panel doesn't drift; otherwise it eases down as the camera approaches
+// (proximityFactor) so a moving target stays clickable. The info panel itself
+// is rendered by Scene, anchored to the right of the body.
 // ---------------------------------------------------------------------------
 
 export default function Planet({ planet }) {
@@ -29,13 +27,14 @@ export default function Planet({ planet }) {
   const bodyGroup = useRef()
   const planetSpin = useRef()
   const worldPos = useMemo(() => new THREE.Vector3(), [])
-  const { selected, phase, clearSelection } = useSelection()
+  const { selected } = useSelection()
+  const texture = useIconTexture(planet.icon)
+  const moonOrbits = useMemo(() => generateMoonOrbits(planet), [planet])
 
   const isSelected = selected?.kind === 'planet' && selected.slug === planet.slug
   // Freeze if this planet is selected OR one of its moons is selected.
   const frozen = isSelected || selected?.parentSlug === planet.slug
 
-  // Data attached to the mesh so the raycaster can identify what was clicked.
   const selectData = {
     kind: 'planet',
     slug: planet.slug,
@@ -65,7 +64,7 @@ export default function Planet({ planet }) {
   return (
     <group ref={orbitPivot} rotation={[0, planet.initialAngle, 0]}>
       <group ref={bodyGroup} position={[planet.orbitRadius, 0, 0]}>
-        {/* Spinning, clickable body. */}
+        {/* Spinning, clickable low-poly body in its accent color. */}
         <mesh
           ref={planetSpin}
           userData={{ select: selectData }}
@@ -75,13 +74,16 @@ export default function Planet({ planet }) {
           <icosahedronGeometry args={[planet.size, 2]} />
           <meshStandardMaterial
             color={planet.color}
+            emissive={planet.color}
+            emissiveIntensity={isSelected ? 0.35 : 0.06}
             flatShading
             roughness={0.65}
             metalness={0.15}
-            emissive={planet.color}
-            emissiveIntensity={isSelected ? 0.35 : 0.06}
           />
         </mesh>
+
+        {/* The planet's logo/photo, shown on its face toward the camera. */}
+        <BodyBadge texture={texture} size={planet.size} />
 
         {/* Idle label — hidden once this planet is focused. */}
         {!isSelected && (
@@ -96,19 +98,14 @@ export default function Planet({ planet }) {
           </Html>
         )}
 
-        {/* Info panel — opens only after the camera has flown in and settled. */}
-        {isSelected && phase === 'open' && (
-          <InfoPanel
-            data={selectData}
-            offsetY={planet.size + 8}
-            distanceFactor={14}
-            onClose={clearSelection}
-          />
-        )}
-
         {/* Moons orbit within the planet's local frame. */}
-        {planet.moons?.map((moon) => (
-          <Moon key={moon.slug} moon={moon} parentSlug={planet.slug} />
+        {planet.moons?.map((moon, i) => (
+          <Moon
+            key={moon.slug}
+            moon={moon}
+            parentSlug={planet.slug}
+            orbit={moonOrbits[i]}
+          />
         ))}
       </group>
     </group>

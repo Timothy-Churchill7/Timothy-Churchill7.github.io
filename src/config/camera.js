@@ -34,16 +34,21 @@ export const INITIAL_CAMERA = {
 }
 
 // ---------------------------------------------------------------------------
-// Fly-to (click a body -> ease camera to a 45° vantage above/offset from it)
+// Fly-to (click a body -> ease camera to a shallow vantage; body sits on the
+// left, info panel anchored to its right)
 // ---------------------------------------------------------------------------
 export const FOCUS = {
   durationMs: 900, // length of the eased fly-to (wall-clock, framerate-independent)
+  elevationDeg: 15, // how high above the body the camera sits (shallow angle)
 }
 
-// Compute the camera vantage point for focusing on a body: a point offset from
-// the object at a ~45° elevation, on the side the camera is already coming from,
-// looking back down at the object. Inputs/outputs are plain [x,y,z] arrays.
+// Compute the fly-to for a body. The camera settles at a shallow (~15°) vantage
+// on the approach side; we aim slightly to the right of the body so it lands on
+// the LEFT of the frame, leaving room on the RIGHT for the info panel — which
+// is anchored out to the side (panelAnchor) rather than above.
+// Inputs/outputs are plain [x,y,z] arrays.
 export function computeVantage(objPos, camPos, size) {
+  const UP = new THREE.Vector3(0, 1, 0)
   const obj = new THREE.Vector3().fromArray(objPos)
   const cam = new THREE.Vector3().fromArray(camPos)
 
@@ -52,12 +57,34 @@ export function computeVantage(objPos, camPos, size) {
   if (horiz.lengthSq() < 1e-4) horiz.set(0, 0, 1)
   horiz.normalize()
 
-  // Equal horizontal + vertical components => 45° elevation.
-  const dir = new THREE.Vector3(horiz.x, 1, horiz.z).normalize()
-  const dist = size * 3 + 10 // frame the body nicely regardless of its size
+  // Shallow-elevation vantage (mostly side-on).
+  const elev = THREE.MathUtils.degToRad(FOCUS.elevationDeg)
+  const dir = horiz
+    .clone()
+    .multiplyScalar(Math.cos(elev))
+    .addScaledVector(UP, Math.sin(elev))
+  const camDist = size * 3.6 + 15
+  const position = obj.clone().addScaledVector(dir, camDist)
 
-  const pos = obj.clone().addScaledVector(dir, dist)
-  return { position: pos.toArray(), lookAt: obj.toArray() }
+  // Camera-right at the vantage (screen-right when looking at the body).
+  const forward = obj.clone().sub(position).normalize()
+  const right = forward.clone().cross(UP).normalize()
+
+  // Panel sits out to the right of the body; aim between them so the body
+  // ends up on the left third and the panel fills the right.
+  const panelOffset = size * 1.3 + 11
+  const panelAnchor = obj
+    .clone()
+    .addScaledVector(right, panelOffset)
+    .addScaledVector(UP, size * 0.15)
+  const lookAt = obj.clone().addScaledVector(right, panelOffset * 0.4)
+
+  return {
+    position: position.toArray(),
+    lookAt: lookAt.toArray(),
+    panelAnchor: panelAnchor.toArray(),
+    panelDistanceFactor: camDist * 0.4,
+  }
 }
 
 // ---------------------------------------------------------------------------
