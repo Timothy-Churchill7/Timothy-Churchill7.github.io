@@ -62,7 +62,7 @@ export const PLANETS = [
           ],
           bullets: [
             '**Favorite Memory:** Spending an hour trying to convince the rest of my spanish class that the kidnapper in *Átame* was the good guy',
-            '**Favorite Professor:** Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
+            '**Personal Shoutout:** Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
             '**Favorite Building:** Beneski Museum or The Cage',
             '**Least Favorite Building:** SMUD',
             ],
@@ -75,7 +75,7 @@ export const PLANETS = [
                 ],
           bullets: [
             '**Favorite Memory:** Endless games of spikeball in between classes and after lunch',
-            '**Favorite Teacher:** Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
+            '**Personal Shoutout:** Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
             '**Favorite Building:** The Castle (Obviously)',
             '**Least Favorite Building:** Baker',
             ],
@@ -98,22 +98,27 @@ export const PLANETS = [
           sections: [
             {
               heading: 'Fall',
-              body: '',
+              body: ['In September I began the Where There Be Dragons Andes and Amazon Fall Semester, a 77 day journey through Bolivia and Peru that consisted of homestays, backpacking, and exploring history and culture in cities across the region.',
+                    'We backpacked through the Andes, watched a rally race and talked to the drivers, and became a part of families for weeks at a time. Along the way, we improved our Spanish and learned how to say some important things in Quechua.',
+                  ],
               bullets: [
-                '**Favorite Memory:** ',
-                '**Personal Shoutout:** ',
-                '**Favorite Place:** ',
-                '**Worst Memory:** ',
+                '**Favorite Memory:** Playing fútbol and chewing Coca with my homestay brother Romario and his friends',
+                '**Personal Shoutout:** My three instructors, Yim, Maren, and Jose, and the eight other kids I took the journey with. (Even Rory) ',
+                '**Favorite Place:** Sleeping under the stars in the Quelccaya Glacier, on the last day of the last trek right at the end of our semester',
+                '**Worst Memory:** Food poisining on the 100º, 12 hour night bus from Lake Titicaca to Puerto Maldonado',
+                '**Favorite Quechua Word:** Tuyusiki',
               ],
             },
             {
               heading: 'Winter',
-              body: '',
+              body: ['After spending less than 72 hours at home, I set out to start my job working as a busser at the Goldminer\'s Daughter lodge in Alta, Utah. This Winter I skied more than 100 days but refrained from learning to backflip as per my mother\'s request.',
+                'I learned how to live and operate completely on my own and show up for something with accountability and consistency, and how to properly ski powder, after being raised on the East Coast.',
+              ],
               bullets: [
-                '**Favorite Memory:** ',
-                '**Personal Shoutout:** ',
-                '**Favorite Place:** ',
-                '**Worst Memory:** ',
+                '**Favorite Memory:** Showing up to work early to fold hundreds oragami napkin hearts for Valentines day',
+                '**Personal Shoutout:** My fellow bussers, Lara and Diana.',
+                '**Favorite Trail:** High Traverse --> Garbage Chute --> North Rustler',
+                '**Biggest Wipeout:** Attempting to send a cliff in Supreme Bowl, double ejecting and rolling 50 feet down the mountain',
               ],
             },
             {
