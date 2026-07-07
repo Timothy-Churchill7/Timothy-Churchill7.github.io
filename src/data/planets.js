@@ -51,16 +51,31 @@ export const PLANETS = [
         {
           heading: 'Amherst College — B.S. Mathematics & Chemistry',
           body: [
-            'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well but of doing good.',
-            'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and make forever memories.',
-            'So far, I have a 3.9/4.0 GPA and my favorite classes have been The Cinema of Pedro Almodóvar and Groups, Rings, and Fields.',
-            'I have loved my college experience up to this point and I am so grateful to all my friends and professors that have made my experience what it is so far.',
+            'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well, but of doing good.',
+            'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and enjoy my college experience.',
+            'So far, I have a 3.9/4.0 GPA and my favorite classes have been The Cinema of Pedro Almodóvar (Spanish) and Groups, Rings, and Fields (Math).',
+            'I have loved my college experience up to this point and I am so grateful to all my friends and professors that have made my it what it is so far.',
 
           ],
+          bullets: [
+            '<u>Favorite Memory:</u> Spending an hour trying to convince the rest of my spanish class that the kidnapper in <em>Átame</em> was the good guy',
+            '<u>Favorite Professor:</u> Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
+            '<u>Favorite Building:</u> Beneski Museum or The Cage',
+            '<u>Least Favorite Building:</u> SMUD',
+            ],
         },
         {
           heading: 'Noble and Greenough School',
-          body: 'GPA 10.9/11 · National Merit Scholarship Finalist · 1580 SAT · Highest Academic Distinction. Three-time elected captain — skiing, cross country, and track & field. Relevant courses: Multivariable Calculus, Advanced Topics in Mathematics, Biochemistry Research, Artificial Intelligence.',
+          body: ['Nobles was an amazing place to go to high school: I was academically inspired and challenged, curiousity was encouraged and rewarded, and my teachers were passionate and  truly cared about me as a student and as a person.',
+            'The community was strong, and I had the chance to contribute to welcoming the next wave of kids as an elected captain of cross country, skiing, and track, and through my engagement with the Mental Health Club and other communities on campus.',
+          'I graduated Nobles with a 10.9/11 GPA earning Highest Academic Distinction. My favorite classes were Advanced Topics in Mathematics, Biochemistry Research, and Artificial Intelligence.',
+                ],
+          bullets: [
+            '<u>Favorite Memory:</u> Endless games of spikeball in between classes and after lunch',
+            '<u>Favorite Teacher:</u> Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
+            '<u>Favorite Building:</u> The Castle (Obviously)',
+            '<u>Least Favorite Building:</u> Baker',
+            ],
         },
       ],
     },
