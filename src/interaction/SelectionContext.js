@@ -15,8 +15,8 @@ export const SelectionContext = createContext({
   focusOnBody: () => {},
   markArrived: () => {},
   clearSelection: () => {},
-  faceVisible: false, // sun's headshot overlay (revealed via the easter egg)
-  revealFace: () => {},
+  faceVisible: false, // sun's headshot overlay (toggled via the easter egg)
+  toggleFace: () => {},
 })
 
 export const useSelection = () => useContext(SelectionContext)

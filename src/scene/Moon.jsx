@@ -79,10 +79,10 @@ export default function Moon({ moon, parentSlug, orbit }) {
 
           {!isSelected && (
             <Html
-              position={[0, moon.size + 1.4, 0]}
+              position={[0, moon.size + 0.7, 0]}
               center
               distanceFactor={90}
-              zIndexRange={[20, 0]}
+              zIndexRange={[16, 0]}
               wrapperClass="planet-label-wrapper"
             >
               <div className="planet-label planet-label--moon">{moon.name}</div>

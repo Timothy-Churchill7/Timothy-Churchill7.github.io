@@ -68,7 +68,7 @@ export const PLANETS = [
       {
         slug: 'gap-year',
         name: 'Gap Year',
-        color: '#7fb0ff',
+        color: '#b3d0ff',
         size: 1.2,
         orbitRadius: 5.5,
         orbitSpeed: 0.5,
@@ -106,7 +106,7 @@ export const PLANETS = [
       {
         slug: '23-cubed',
         name: '23 Cubed',
-        color: '#ff8a5f',
+        color: '#ffcaa8',
         size: 1.2,
         orbitRadius: 6.5,
         orbitSpeed: 0.5,
@@ -121,7 +121,7 @@ export const PLANETS = [
       {
         slug: 'nobles-day-camp',
         name: 'Nobles Day Camp',
-        color: '#ff7a4d',
+        color: '#ff9260',
         size: 1.2,
         orbitRadius: 8.5,
         orbitSpeed: 0.42,
@@ -136,7 +136,7 @@ export const PLANETS = [
       {
         slug: 'goldminers-daughter',
         name: "Goldminer's Daughter",
-        color: '#e0562c',
+        color: '#d64a24',
         size: 1.2,
         orbitRadius: 10.5,
         orbitSpeed: 0.34,
@@ -151,7 +151,7 @@ export const PLANETS = [
       {
         slug: 'icode',
         name: 'iCode',
-        color: '#ff9d78',
+        color: '#a83714',
         size: 1.2,
         orbitRadius: 12.5,
         orbitSpeed: 0.28,
@@ -168,7 +168,7 @@ export const PLANETS = [
   {
     slug: 'leadership',
     name: 'Leadership & Service',
-    color: '#3fbf6f',
+    color: '#2f7d4e',
     size: 4.5,
     orbitRadius: 69,
     orbitSpeed: 0.05,
@@ -184,7 +184,7 @@ export const PLANETS = [
       {
         slug: 'aas-senator',
         name: 'AAS Senator',
-        color: '#6fd694',
+        color: '#a8e2bd',
         size: 1.2,
         orbitRadius: 6,
         orbitSpeed: 0.55,
@@ -199,7 +199,7 @@ export const PLANETS = [
       {
         slug: 'samaritans',
         name: 'Samaritans Helpline',
-        color: '#57cc80',
+        color: '#6cc78a',
         size: 1.2,
         orbitRadius: 8,
         orbitSpeed: 0.44,
@@ -214,7 +214,7 @@ export const PLANETS = [
       {
         slug: 'backpacking',
         name: 'Backpacking — Trip Leader',
-        color: '#34a95f',
+        color: '#3f9d63',
         size: 1.2,
         orbitRadius: 10,
         orbitSpeed: 0.36,
@@ -233,7 +233,7 @@ export const PLANETS = [
       {
         slug: 'emergency-medicine',
         name: 'Amherst College EMS / Med-13',
-        color: '#7fdda2',
+        color: '#266b41',
         size: 1.2,
         orbitRadius: 12,
         orbitSpeed: 0.3,
@@ -248,7 +248,7 @@ export const PLANETS = [
       {
         slug: 'kind',
         name: 'K.I.N.D. Translation',
-        color: '#48c778',
+        color: '#164d2e',
         size: 1.2,
         orbitRadius: 14,
         orbitSpeed: 0.24,
@@ -326,7 +326,7 @@ export const PLANETS = [
       {
         slug: 'technical-skills',
         name: 'Technical Skills',
-        color: '#ffd472',
+        color: '#ffe291',
         size: 1.2,
         orbitRadius: 6,
         orbitSpeed: 0.5,
@@ -346,7 +346,7 @@ export const PLANETS = [
       {
         slug: 'languages',
         name: 'Languages',
-        color: '#f7ca5a',
+        color: '#eeb43a',
         size: 1.2,
         orbitRadius: 8,
         orbitSpeed: 0.42,
@@ -361,7 +361,7 @@ export const PLANETS = [
       {
         slug: 'certifications',
         name: 'Certifications',
-        color: '#dda52f',
+        color: '#bd851f',
         size: 1.2,
         orbitRadius: 10,
         orbitSpeed: 0.34,
@@ -385,7 +385,7 @@ export const PLANETS = [
   {
     slug: 'finance',
     name: 'Finance',
-    color: '#2b3f7a',
+    color: '#2e50c8',
     size: 4,
     orbitRadius: 118,
     orbitSpeed: 0.02,

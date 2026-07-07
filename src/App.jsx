@@ -5,11 +5,8 @@ import InfoPanel from './scene/InfoPanel.jsx'
 import { INITIAL_CAMERA } from './config/camera.js'
 
 // ---------------------------------------------------------------------------
-// App — hosts the R3F canvas, the flat 2D HUD, and the info panel overlay.
-// ---------------------------------------------------------------------------
-// The info panel is a fixed DOM region on the right of the screen (not a 3D
-// object), driven by `panelData` which Scene reports once a fly-to settles.
-// `closeRef` holds Scene's clearSelection so the panel's × can dismiss it.
+// App — hosts the R3F canvas, the flat 2D HUD, the info panel overlay, and the
+// easter-egg "Tim sun" toast.
 // ---------------------------------------------------------------------------
 
 export default function App() {
@@ -17,10 +14,23 @@ export default function App() {
   const [selected, setSelected] = useState(null)
   const [panelData, setPanelData] = useState(null)
   const [ready, setReady] = useState(false)
+  const [faceToast, setFaceToast] = useState(null) // { text, active }
   const closeRef = useRef(() => {})
+  const faceRef = useRef({ deactivate: () => {} })
+  const toastTimer = useRef(null)
 
   const registerClose = useCallback((fn) => {
     closeRef.current = fn
+  }, [])
+  const registerFace = useCallback((controls) => {
+    faceRef.current = controls
+  }, [])
+
+  // Brief, self-fading toast whenever the sun face is toggled.
+  const onFaceMessage = useCallback((text, active) => {
+    setFaceToast({ text, active })
+    clearTimeout(toastTimer.current)
+    toastTimer.current = setTimeout(() => setFaceToast(null), 2600)
   }, [])
 
   return (
@@ -41,6 +51,8 @@ export default function App() {
           onSelectChange={setSelected}
           onActivePanel={setPanelData}
           registerClose={registerClose}
+          onFaceMessage={onFaceMessage}
+          registerFace={registerFace}
         />
       </Canvas>
 
@@ -59,6 +71,21 @@ export default function App() {
             data={panelData}
             onClose={() => closeRef.current()}
           />
+        </div>
+      )}
+
+      {/* ---- Easter-egg toast ---- */}
+      {faceToast && (
+        <div className="face-toast">
+          <span>{faceToast.text}</span>
+          {faceToast.active && (
+            <button
+              className="face-toast__btn"
+              onClick={() => faceRef.current.deactivate()}
+            >
+              Deactivate
+            </button>
+          )}
         </div>
       )}
 

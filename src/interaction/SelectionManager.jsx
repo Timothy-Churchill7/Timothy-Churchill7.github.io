@@ -23,7 +23,7 @@ import { useSelection } from './SelectionContext.js'
 // ---------------------------------------------------------------------------
 
 export default function SelectionManager() {
-  const { selected, focusOnBody, clearSelection, revealFace } = useSelection()
+  const { selected, focusOnBody, clearSelection, toggleFace } = useSelection()
   const { camera, gl, scene } = useThree()
 
   useEffect(() => {
@@ -65,9 +65,9 @@ export default function SelectionManager() {
       }
 
       if (picked?.kind === 'easteregg') {
-        // The floating easter egg: restore the sun's face overlay (only ever
-        // adds it back). Don't fly to it; swallow so we don't re-lock.
-        revealFace()
+        // The floating easter egg toggles the sun's face overlay. Don't fly to
+        // it; swallow the click so we don't re-lock.
+        toggleFace()
         e.stopImmediatePropagation()
         e.preventDefault()
       } else if (picked) {
@@ -87,7 +87,7 @@ export default function SelectionManager() {
 
     el.addEventListener('click', onClick, { capture: true })
     return () => el.removeEventListener('click', onClick, { capture: true })
-  }, [camera, gl, scene, selected, focusOnBody, clearSelection, revealFace])
+  }, [camera, gl, scene, selected, focusOnBody, clearSelection, toggleFace])
 
   return null
 }

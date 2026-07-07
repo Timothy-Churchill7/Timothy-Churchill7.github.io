@@ -94,10 +94,10 @@ export default function Planet({ planet }) {
           {/* Idle label — hidden once this planet is focused. */}
           {!isSelected && (
             <Html
-              position={[0, planet.size + 3, 0]}
+              position={[0, planet.size + 1.5, 0]}
               center
               distanceFactor={140}
-              zIndexRange={[30, 0]}
+              zIndexRange={[20, 0]}
               wrapperClass="planet-label-wrapper"
             >
               <div className="planet-label">{planet.name}</div>

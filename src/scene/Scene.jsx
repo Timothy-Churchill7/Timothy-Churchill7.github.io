@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Sun from './Sun.jsx'
 import Background from './Background.jsx'
 import Starfield from './Starfield.jsx'
@@ -28,11 +28,14 @@ export default function Scene({
   onSelectChange,
   onActivePanel,
   registerClose,
+  onFaceMessage,
+  registerFace,
 }) {
   const [selected, setSelected] = useState(null)
   const [phase, setPhase] = useState('idle') // 'idle' | 'approaching' | 'open'
   const [focus, setFocus] = useState(null)
   const [faceVisible, setFaceVisible] = useState(false)
+  const faceVisibleRef = useRef(false)
 
   const focusOnBody = useCallback(
     (data, objPos, camPos) => {
@@ -54,17 +57,33 @@ export default function Scene({
     onSelectChange?.(null)
   }, [onSelectChange])
 
-  const revealFace = useCallback(() => setFaceVisible(true), [])
+  // Set / toggle the sun's face overlay, announcing the change to App's toast.
+  const setFace = useCallback(
+    (on) => {
+      faceVisibleRef.current = on
+      setFaceVisible(on)
+      onFaceMessage?.(on ? 'Tim sun activated' : 'Tim sun deactivated', on)
+    },
+    [onFaceMessage],
+  )
+  const toggleFace = useCallback(
+    () => setFace(!faceVisibleRef.current),
+    [setFace],
+  )
 
   // Show the DOM panel only once the fly-to has settled.
   useEffect(() => {
     onActivePanel?.(phase === 'open' ? selected : null)
   }, [phase, selected, onActivePanel])
 
-  // Let App's panel close button reach clearSelection.
+  // Let App's panel close button reach clearSelection, and the toast's
+  // "Deactivate" button turn the face off.
   useEffect(() => {
     registerClose?.(clearSelection)
   }, [registerClose, clearSelection])
+  useEffect(() => {
+    registerFace?.({ deactivate: () => setFace(false) })
+  }, [registerFace, setFace])
 
   return (
     <SelectionContext.Provider
@@ -76,7 +95,7 @@ export default function Scene({
         markArrived,
         clearSelection,
         faceVisible,
-        revealFace,
+        toggleFace,
       }}
     >
       <fog attach="fog" args={['#160f30', 380, 1500]} />

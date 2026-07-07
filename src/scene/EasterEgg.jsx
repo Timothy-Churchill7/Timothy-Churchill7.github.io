@@ -1,24 +1,58 @@
-import { useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
+import * as THREE from 'three'
 
 // ---------------------------------------------------------------------------
-// EasterEgg — a tiny object that slowly drifts across the background (~1 min to
-// cross) and gently spins. Unobtrusive by design. It's tagged selectable with
-// kind 'easteregg'; clicking it restores the sun's headshot face overlay (see
-// SelectionManager + Sun). Small and dim so it doesn't draw attention on load.
+// EasterEgg — a tiny striped object that drifts across the background (~1 min
+// to cross) and gently spins. It does NOT appear until 30s after load. Candy-
+// cane red diagonal stripes mark it as intentional (not stray debris). Tagged
+// selectable with kind 'easteregg'; clicking it TOGGLES the sun's face overlay
+// (see SelectionManager + Scene).
 // ---------------------------------------------------------------------------
 
 const CROSS = 190 // half-width of the drift path
 const PERIOD = 60 // seconds to cross from one side to the other
+const APPEAR_DELAY = 30000 // ms before the egg first appears
 const Y = 32
 const Z = -95
+
+// Diagonal red-on-light stripes -> reads as a barber-pole/candy-cane on a ball.
+function makeStripeTexture() {
+  const size = 128
+  const c = document.createElement('canvas')
+  c.width = c.height = size
+  const ctx = c.getContext('2d')
+  ctx.fillStyle = '#eef0f7'
+  ctx.fillRect(0, 0, size, size)
+  ctx.strokeStyle = '#e23b3b'
+  ctx.lineWidth = 15
+  for (let i = -size; i < size * 2; i += 40) {
+    ctx.beginPath()
+    ctx.moveTo(i, 0)
+    ctx.lineTo(i + size, size)
+    ctx.stroke()
+  }
+  const tex = new THREE.CanvasTexture(c)
+  tex.colorSpace = THREE.SRGBColorSpace
+  return tex
+}
 
 export default function EasterEgg() {
   const group = useRef()
   const mesh = useRef()
+  const start = useRef(null)
+  const stripes = useMemo(makeStripeTexture, [])
+  const [appeared, setAppeared] = useState(false)
+
+  useEffect(() => {
+    const id = setTimeout(() => setAppeared(true), APPEAR_DELAY)
+    return () => clearTimeout(id)
+  }, [])
 
   useFrame((state, delta) => {
-    const t = (state.clock.elapsedTime % PERIOD) / PERIOD // 0..1, then loops
+    if (!appeared) return
+    if (start.current == null) start.current = state.clock.elapsedTime
+    const t = (((state.clock.elapsedTime - start.current) % PERIOD) / PERIOD)
     if (group.current) {
       group.current.position.set(
         -CROSS + t * 2 * CROSS,
@@ -32,6 +66,8 @@ export default function EasterEgg() {
     }
   })
 
+  if (!appeared) return null
+
   return (
     <group ref={group}>
       <mesh
@@ -40,14 +76,13 @@ export default function EasterEgg() {
         onPointerOver={() => (document.body.style.cursor = 'pointer')}
         onPointerOut={() => (document.body.style.cursor = 'default')}
       >
-        <icosahedronGeometry args={[0.65, 0]} />
+        <sphereGeometry args={[0.65, 24, 24]} />
         <meshStandardMaterial
-          color="#c3c9dc"
-          emissive="#6b74a2"
-          emissiveIntensity={0.35}
-          flatShading
+          map={stripes}
           roughness={0.5}
-          metalness={0.35}
+          metalness={0.2}
+          emissive="#3a2233"
+          emissiveIntensity={0.25}
         />
       </mesh>
     </group>
