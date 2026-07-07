@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { ABOUT_ME } from '../data/about.js'
+import { padToSquareTexture } from './useIconTexture.js'
 
 // ---------------------------------------------------------------------------
 // Sun — the "home" body at the center of the system.
@@ -52,20 +53,15 @@ export default function Sun() {
   // Scene; here we just tag the sun group as selectable.
 
   // Try to load the real headshot; keep the fallback if it isn't there yet.
+  // Square-pad it (transparent margins) so the portrait doesn't smear at the
+  // sphere's poles — the glow shows through the transparent padding.
   useEffect(() => {
-    const url = `${import.meta.env.BASE_URL}assets/tim_headshot.jpg`
-    const loader = new THREE.TextureLoader()
-    loader.load(
-      url,
-      (tex) => {
-        tex.colorSpace = THREE.SRGBColorSpace
-        setHeadshot(tex)
-      },
-      undefined,
-      () => {
-        /* file not present — keep the procedural fallback */
-      },
-    )
+    const img = new Image()
+    img.onload = () => setHeadshot(padToSquareTexture(img, null, 0.86))
+    img.onerror = () => {
+      /* file not present — keep the procedural fallback */
+    }
+    img.src = `${import.meta.env.BASE_URL}assets/tim_headshot.jpg`
   }, [])
 
   useFrame((_, delta) => {

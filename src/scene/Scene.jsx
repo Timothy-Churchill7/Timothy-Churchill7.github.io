@@ -55,7 +55,7 @@ export default function Scene({ onLockChange, onSelectChange }) {
     >
       {/* Purple gradient dome instead of a flat black background. Fog tinted
           to match so distant bodies fade into the violet rather than to black. */}
-      <fog attach="fog" args={['#5a4a92', 400, 1600]} />
+      <fog attach="fog" args={['#1b1338', 380, 1500]} />
 
       <Background />
       <Starfield />

@@ -27,7 +27,7 @@ export const FLIGHT = {
 // Initial camera placement: pulled back and above the ecliptic, angled down at
 // the sun so the whole (compact) system reads clearly the moment it loads.
 export const INITIAL_CAMERA = {
-  position: [0, 48, 150],
+  position: [0, 36, 112],
   fov: 70,
   near: 0.1,
   far: 4000,
@@ -70,20 +70,21 @@ export function computeVantage(objPos, camPos, size) {
   const forward = obj.clone().sub(position).normalize()
   const right = forward.clone().cross(UP).normalize()
 
-  // Panel sits out to the right of the body; aim well to the right so the body
-  // ends up on the far left and the large panel fills most of the frame.
-  const panelOffset = size * 1.0 + 12
+  // The (compact) panel is anchored out to the right of the body; we aim
+  // between them so the body sits left-of-center and the panel sits to the
+  // right with comfortable margin.
+  const panelOffset = size * 1.3 + 16
   const panelAnchor = obj
     .clone()
     .addScaledVector(right, panelOffset)
     .addScaledVector(UP, size * 0.05)
-  const lookAt = obj.clone().addScaledVector(right, panelOffset * 0.72)
+  const lookAt = obj.clone().addScaledVector(right, panelOffset * 0.5)
 
   return {
     position: position.toArray(),
     lookAt: lookAt.toArray(),
     panelAnchor: panelAnchor.toArray(),
-    panelDistanceFactor: camDist * 1.15,
+    panelDistanceFactor: camDist * 0.6,
   }
 }
 

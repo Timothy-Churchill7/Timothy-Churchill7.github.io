@@ -5,11 +5,11 @@ import * as THREE from 'three'
 // OrbitRing — a faint flat ring on the ecliptic marking a planet's orbit.
 // ---------------------------------------------------------------------------
 
-export default function OrbitRing({ radius, color = '#9db4e8', opacity = 0.06 }) {
-  // A very thin annulus lying flat in the XZ plane — a subtle hint, not a
-  // prominent drawn line.
+export default function OrbitRing({ radius, color = '#9db4e8', opacity = 0.12 }) {
+  // A thin annulus lying flat in the XZ plane — a subtle hint, not a prominent
+  // drawn line.
   const geometry = useMemo(() => {
-    const g = new THREE.RingGeometry(radius - 0.05, radius + 0.05, 200)
+    const g = new THREE.RingGeometry(radius - 0.08, radius + 0.08, 220)
     g.rotateX(-Math.PI / 2)
     return g
   }, [radius])
