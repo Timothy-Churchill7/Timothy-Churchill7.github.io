@@ -52,7 +52,7 @@ export const PLANETS = [
       subtitle: '',
       sections: [
         {
-          heading: 'Amherst College Class of 29 — B.S. Mathematics & Chemistry',
+          heading: 'Amherst College Class of \'29 — B.S. Mathematics & Chemistry',
           body: [
             'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well, but of doing good.',
             'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and enjoy my college experience.',
@@ -64,11 +64,10 @@ export const PLANETS = [
             '**Favorite Memory:** Spending an hour trying to convince the rest of my spanish class that the kidnapper in *Átame* was the good guy',
             '**Personal Shoutout:** Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
             '**Favorite Building:** Beneski Museum or The Cage',
-            '**Least Favorite Building:** SMUD',
             ],
         },
         {
-          heading: 'Noble and Greenough School Class of 2024',
+          heading: 'Noble and Greenough School Class of \'24',
           body: ['Nobles was an amazing place to go to high school: I was academically inspired and challenged, curiousity was encouraged and rewarded, and my teachers were passionate and  truly cared about me as a student and as a person.',
             'The community was strong, and I had the chance to contribute to welcoming the next wave of kids as an elected captain of cross country, skiing, and track, and through my engagement with the Mental Health Club and other communities on campus.',
           'I graduated Nobles with a 10.9/11 GPA earning Highest Academic Distinction. My favorite classes were Advanced Topics in Mathematics, Biochemistry Research, and Artificial Intelligence.',
@@ -76,8 +75,8 @@ export const PLANETS = [
           bullets: [
             '**Favorite Memory:** Endless games of spikeball in between classes and after lunch',
             '**Personal Shoutout:** Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
-            '**Favorite Building:** The Castle (Obviously)',
-            '**Least Favorite Building:** Baker',
+            '**Favorite Building:** The Castle',
+            '**Best Meal:** Deconstructed Shepherd\'s Pie',
             ],
         },
       ],
@@ -111,7 +110,7 @@ export const PLANETS = [
             },
             {
               heading: 'Winter',
-              body: ['After spending less than 72 hours at home, I set out to start my job working as a busser at the Goldminer\'s Daughter lodge in Alta, Utah. This Winter I skied more than 100 days but refrained from learning to backflip as per my mother\'s request.',
+              body: ['After spending less than 72 hours at home, I set out to start my job working as a busser at the Goldminer\'s Daughter lodge in Alta, Utah. That Winter I skied more than 100 days but refrained from learning to backflip as per my mother\'s request.',
                 'I learned how to live and operate completely on my own and show up for something with accountability and consistency, and how to properly ski powder, after being raised on the East Coast.',
               ],
               bullets: [
@@ -136,9 +135,9 @@ export const PLANETS = [
             {
               heading: 'Summer',
               body: ['My Summer was slower. I spent my days training for the Amherst XC tryout process in the fall and spending time with my family after being away for so long.',
-                    'After seeing the immigration detention campaign, this is when I began working with an immigration attorney doing interpretation/translation work to help her communicate with non-English speaking clients.',],
+                    'After seeing the immigration enforcement campaign on the news, this is when I began working with an immigration attorney doing interpretation/translation work to help her communicate with non-English speaking clients.',],
               bullets: [
-                '**Favorite Memory:** Taking a sailboat out in a hurricane with my dad and Uncle',
+                '**Favorite Memory:** Taking a sailboat out in a hurricane with my dad and uncle',
                 '**Personal Shoutout:** My wonderful family',
                 '**Favorite Game:** Bananagrams',,
               ],
@@ -160,8 +159,8 @@ export const PLANETS = [
     // icon: missing — no "work" graphic supplied (placeholder disc for now)
     content: {
       title: 'Work Experience',
-      subtitle: '',
-      body: 'The jobs I’ve had have ranged from being a rowdy camp counselor charged with bringing excitement and energy to the day to a professional, polished restaurant staff at a luxury ski resort. I can manage a full stack deployment of a company site just as well as a pile of 7 year olds climbing on me like a jungle gym. Whatever it is I’m doing, though, I always make sure to bring my personality: easy to laugh and smile but also ready to lend a hand or an ear when it’s needed. I’m a quick learner and I am excited to try new things, meet new people, and learn how to make more of an impact than I ever thought possible.',
+      subtitle: 'Click on Moons for more details',
+      body: 'The jobs I’ve had have ranged from being a rowdy camp counselor charged with bringing excitement and energy to the day to a professional, polished restaurant staff at a luxury ski resort. I can manage a full stack deployment of a company site just as well as a pile of 7 year olds climbing on me like a jungle gym. Whatever it is I’m doing, though, I always make sure to bring good humor and energy. I’m a quick learner and I am excited to try new things, meet new people, and learn how to make more of an impact than I ever thought possible.',
     },
     moons: [
       {
@@ -176,12 +175,14 @@ export const PLANETS = [
         content: {
           title: '23 Cubed — Junior Developer',
           subtitle: 'June–August 2022',
-          body: 'I took ownership of a complete full-stack redeployment of the company site (23cubed.com), and developed and deployed four client websites using Webflow, JavaScript, CSS, and HTML.',
+          body: ['My first time working with software in a professional setting was working with Webflow for 23cubed. I started by polishing and implementing Content Management Systems (CMS) on outdated client pages but was quickly switched to working on current projects.',
+          'Near the end of the summer, I took ownership of a complete full-stack redeployment of the company site (23cubed.com). I implemented our own Content Management System, redrew the home page, and drew up a new \'plugins\' page from scratch.',
+          ],
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Favorite Memory:** Being "almost done" with the plugins page for more than a week',
+            '**Personal Shoutout:** My Boss, Ben, who trusted me immediately with responsibiltiy and continued to put more faith in me as the summer progressed',
+            '**Favorite Place:** My desk, from the hours of 11PM - 2AM',
+            '**Favorite Feature to Code:** The zoom effect on the bottom middle panel of each Project display',
           ],
         },
       },
@@ -197,12 +198,13 @@ export const PLANETS = [
         content: {
           title: 'Nobles Day Camp — Swing Counselor',
           subtitle: 'June–August 2024',
-          body: 'I adapted daily to new camper groups ages 6–13, coordinating activities and building relationships through rapidly changing group dynamics. I earned the “You’re a Hoot” award as one of the top three counselors of the week (~top 2%), recognized for leadership, adaptability, and fostering positive camper engagement.',
+          body: ['As a Swing Counselor at the Nobles Day Camp, I had a new group of twenty kids almost every day. That meant twenty new personalities, preferences, allergies, fears, and catch phrases. I was a personal jungle gym for some kids and a cry zone for others. Some kids thought I was the greatest being to ever exist, and some thought I was the devil incarnate.',
+          'Regardless of their attitudes, I had a lot of fun connecting with each and every kid I got the chance to. I was recognized for my leadership, adaptability, and relentless positive energy across all age groups with the "You\'re a Hoot" award (given to 3/160 counselors).'],
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Favorite Memory:** When one of my former kids recognized me from across the lawn and broke away from his supervisors to run all the way over and give me a hug',
+            '**Personal Shoutout:** Matthew, Angel, Carolyn and the rest of the 2D gang',
+            '**Favorite Activity:** Dodgeball (but only when the kids let me play, too)',
+            '**Most Humbling Memory:** Being taunted by a 2nd grader while bleeding profusely on the way to the Health Office after scraping my nose on the bottom of the pool',
           ],
         },
       },
