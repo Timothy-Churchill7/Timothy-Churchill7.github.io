@@ -138,7 +138,7 @@ export const PLANETS = [
                     'After seeing the immigration enforcement campaign on the news, this is when I began working with an immigration attorney doing interpretation/translation work to help her communicate with non-English speaking clients.',],
               bullets: [
                 '**Favorite Memory:** Taking a sailboat out in a hurricane with my dad and uncle',
-                '**Personal Shoutout:** My wonderful family',
+                '**Personal Shoutout:** My family',
                 '**Favorite Game:** Bananagrams',,
               ],
             },
@@ -220,12 +220,13 @@ export const PLANETS = [
         content: {
           title: "The Goldminer's Daughter Lodge — Dining Room Server",
           subtitle: 'December 2024–March 2025',
-          body: 'I served 50+ tables per shift in a high-volume luxury ski lodge, communicating in both English and Spanish in a fast-paced hospitality environment.',
+          body: 'Working at Goldminer\'s was my first full time, proper job experience. I was by far the youngest in the restaraunt, and I tried to bring energy and positivity every morning. The other two bussers were both J1 Visa holders from South America, and they helped me practice my Spanish and introduced me to Argentinian Rock music.'
+            ,
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Favorite Memory:** Blasting "La Moreana" by Oro Solido while wiping down the tables after the last guests left',
+            '**Personal Shoutout:** Lara and Diana',
+            '**Favorite Special Leftovers:** Short Ribs and Mashed Potatoes',
+            '**Worst Costumer Experience:** Someone insiting on a "3 minute" boiled egg and then raging at me when it was basically still raw (duh)',
           ],
         },
       },
@@ -241,12 +242,10 @@ export const PLANETS = [
         content: {
           title: 'iCode — Counselor',
           subtitle: 'June–August 2021',
-          body: 'A coding and tech summer camp for kids; I was responsible for roughly 15 campers ages 7–12.',
+          body: 'Working at iCode was my first time having a job. It was an introduction to responsiblity and accountability. I learned how to earn respect from the campers without sacrificing their trust and their ability to share their joy with me.',
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Favorite Memory:** Organizing a soccer game that went way over break time',
+            '**Favorite Place:** The park down the street where we went after lunch',
           ],
         },
       },
