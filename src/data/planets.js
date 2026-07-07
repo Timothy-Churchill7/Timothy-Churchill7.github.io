@@ -91,7 +91,7 @@ export const PLANETS = [
         icon: 'assets/planets/gap-year.jpg',
         content: {
           title: 'Gap Year',
-          subtitle: 'A year of language, mountains, and miles · 2025',
+          subtitle: '2024-2025',
           bullets: [
             'Where There Be Dragons — Andes & Amazon semester (Fall 2025): a 77-day program of full Spanish immersion, homestays, and travel across Bolivia and Peru, including a 3-day, fully self-planned backpacking trip up to 16,500 ft of elevation.',
             'Worked at The Goldminer’s Daughter Lodge in Alta, UT (see Work Experience for full detail).',
