@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { ABOUT_ME } from '../data/about.js'
 import { padToSquareTexture } from './useIconTexture.js'
+import { useSelection } from '../interaction/SelectionContext.js'
 
 // ---------------------------------------------------------------------------
 // Sun — the "home" body at the center of the system.
@@ -47,6 +48,9 @@ export default function Sun() {
   const coreRef = useRef()
   const fallback = useMemo(makeFallbackTexture, [])
   const [headshot, setHeadshot] = useState(fallback)
+  // The headshot face overlay is hidden by default; clicking the floating
+  // easter egg reveals it (see EasterEgg + SelectionManager).
+  const { faceVisible } = useSelection()
 
   // The sun is clickable like any body: clicking it flies to it and opens the
   // "About Me" panel (see src/data/about.js). The panel itself is rendered by
@@ -97,8 +101,9 @@ export default function Sun() {
           <meshBasicMaterial color="#ffcf59" toneMapped={false} />
         </mesh>
 
-        {/* Translucent headshot blended over the core (soft presence). */}
-        <mesh scale={1.008}>
+        {/* Translucent headshot blended over the core (soft presence).
+            Hidden until revealed via the easter egg. */}
+        <mesh scale={1.008} visible={faceVisible}>
           <sphereGeometry args={[SUN_RADIUS, 48, 48]} />
           <meshBasicMaterial
             map={headshot}

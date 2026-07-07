@@ -5,7 +5,6 @@ import * as THREE from 'three'
 import Moon from './Moon.jsx'
 import OrbitRing from './OrbitRing.jsx'
 import { useSelection } from '../interaction/SelectionContext.js'
-import { useIconTexture } from './useIconTexture.js'
 import { generateMoonOrbits } from './moonOrbits.js'
 import { bodyVariation } from './bodyVariation.js'
 import { proximityFactor } from '../config/camera.js'
@@ -32,7 +31,6 @@ export default function Planet({ planet }) {
   const planetSpin = useRef()
   const worldPos = useMemo(() => new THREE.Vector3(), [])
   const { selected } = useSelection()
-  const texture = useIconTexture(planet.icon, planet.slug)
   const moonOrbits = useMemo(() => generateMoonOrbits(planet), [planet])
   const v = useMemo(() => bodyVariation(planet.slug), [planet.slug])
 
@@ -66,12 +64,12 @@ export default function Planet({ planet }) {
 
   return (
     <group rotation={v.inclination}>
-      {/* Orbit ring lives in the (inclined) orbital plane. */}
-      <OrbitRing radius={planet.orbitRadius} color={planet.color} opacity={0.12} />
+      {/* Orbit ring lives in the (inclined) orbital plane. Light grey. */}
+      <OrbitRing radius={planet.orbitRadius} color="#c9cdd8" opacity={0.096} />
 
       <group ref={orbitPivot} rotation={[0, planet.initialAngle, 0]}>
         <group ref={bodyGroup} position={[planet.orbitRadius, 0, 0]}>
-          {/* Axial tilt, then slow self-rotation. */}
+          {/* Axial tilt, then slow self-rotation. Solid-colored sphere. */}
           <group rotation={v.axialTilt}>
             <group
               ref={planetSpin}
@@ -90,18 +88,6 @@ export default function Planet({ planet }) {
                   metalness={0.15}
                 />
               </mesh>
-              {texture && (
-                <mesh scale={1.01}>
-                  <sphereGeometry args={[planet.size, 48, 48]} />
-                  <meshBasicMaterial
-                    map={texture}
-                    transparent
-                    opacity={0.92}
-                    depthWrite={false}
-                    toneMapped
-                  />
-                </mesh>
-              )}
             </group>
           </group>
 

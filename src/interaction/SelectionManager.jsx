@@ -23,7 +23,7 @@ import { useSelection } from './SelectionContext.js'
 // ---------------------------------------------------------------------------
 
 export default function SelectionManager() {
-  const { selected, focusOnBody, clearSelection } = useSelection()
+  const { selected, focusOnBody, clearSelection, revealFace } = useSelection()
   const { camera, gl, scene } = useThree()
 
   useEffect(() => {
@@ -64,7 +64,13 @@ export default function SelectionManager() {
         if (picked) break
       }
 
-      if (picked) {
+      if (picked?.kind === 'easteregg') {
+        // The floating easter egg: restore the sun's face overlay (only ever
+        // adds it back). Don't fly to it; swallow so we don't re-lock.
+        revealFace()
+        e.stopImmediatePropagation()
+        e.preventDefault()
+      } else if (picked) {
         // Use the body's current world center so the vantage is framed on it.
         pickedObj.getWorldPosition(worldPos)
         focusOnBody(picked, worldPos.toArray(), camera.position.toArray())
@@ -81,7 +87,7 @@ export default function SelectionManager() {
 
     el.addEventListener('click', onClick, { capture: true })
     return () => el.removeEventListener('click', onClick, { capture: true })
-  }, [camera, gl, scene, selected, focusOnBody, clearSelection])
+  }, [camera, gl, scene, selected, focusOnBody, clearSelection, revealFace])
 
   return null
 }

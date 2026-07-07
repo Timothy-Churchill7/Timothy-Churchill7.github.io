@@ -3,7 +3,6 @@ import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
 import * as THREE from 'three'
 import { useSelection } from '../interaction/SelectionContext.js'
-import { useIconTexture } from './useIconTexture.js'
 import { bodyVariation } from './bodyVariation.js'
 import { proximityFactor } from '../config/camera.js'
 
@@ -22,7 +21,6 @@ export default function Moon({ moon, parentSlug, orbit }) {
   const spin = useRef()
   const worldPos = useMemo(() => new THREE.Vector3(), [])
   const { selected } = useSelection()
-  const texture = useIconTexture(moon.icon, moon.slug)
   const v = useMemo(() => bodyVariation(moon.slug), [moon.slug])
 
   const radius = orbit?.radius ?? moon.orbitRadius
@@ -76,18 +74,6 @@ export default function Moon({ moon, parentSlug, orbit }) {
                   metalness={0.1}
                 />
               </mesh>
-              {texture && (
-                <mesh scale={1.01}>
-                  <sphereGeometry args={[moon.size, 32, 32]} />
-                  <meshBasicMaterial
-                    map={texture}
-                    transparent
-                    opacity={0.94}
-                    depthWrite={false}
-                    toneMapped
-                  />
-                </mesh>
-              )}
             </group>
           </group>
 

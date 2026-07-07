@@ -16,8 +16,8 @@ export function generateMoonOrbits(planet) {
   if (n === 0) return []
 
   const rand = mulberry32(hashString(planet.slug))
-  const rMin = planet.size + 1.6
-  const step = 1.4 // tight spacing between successive moon orbits
+  const rMin = planet.size + 1.3
+  const step = 1.1 // tight spacing between successive moon orbits
   const rMax = rMin + Math.max(n - 1, 0) * step
   const span = Math.max(rMax - rMin, 1)
 

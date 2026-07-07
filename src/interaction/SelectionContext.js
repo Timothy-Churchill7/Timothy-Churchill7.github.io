@@ -10,7 +10,13 @@ import { createContext, useContext } from 'react'
 
 export const SelectionContext = createContext({
   selected: null,
-  setSelected: () => {},
+  phase: 'idle',
+  focus: null,
+  focusOnBody: () => {},
+  markArrived: () => {},
+  clearSelection: () => {},
+  faceVisible: false, // sun's headshot overlay (revealed via the easter egg)
+  revealFace: () => {},
 })
 
 export const useSelection = () => useContext(SelectionContext)

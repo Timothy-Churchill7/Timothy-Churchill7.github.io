@@ -1,21 +1,27 @@
-import { useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Scene from './scene/Scene.jsx'
+import InfoPanel from './scene/InfoPanel.jsx'
 import { INITIAL_CAMERA } from './config/camera.js'
 
 // ---------------------------------------------------------------------------
-// App — hosts the R3F canvas and the flat 2D HUD overlay.
+// App — hosts the R3F canvas, the flat 2D HUD, and the info panel overlay.
 // ---------------------------------------------------------------------------
-// HUD state:
-//   locked   — pointer lock engaged (currently flying) -> show crosshair
-//   selected — a planet/moon panel is open -> adjust the hint
-// The HUD is pointer-events:none so it never steals clicks from the canvas.
+// The info panel is a fixed DOM region on the right of the screen (not a 3D
+// object), driven by `panelData` which Scene reports once a fly-to settles.
+// `closeRef` holds Scene's clearSelection so the panel's × can dismiss it.
 // ---------------------------------------------------------------------------
 
 export default function App() {
   const [locked, setLocked] = useState(false)
   const [selected, setSelected] = useState(null)
+  const [panelData, setPanelData] = useState(null)
   const [ready, setReady] = useState(false)
+  const closeRef = useRef(() => {})
+
+  const registerClose = useCallback((fn) => {
+    closeRef.current = fn
+  }, [])
 
   return (
     <>
@@ -30,7 +36,12 @@ export default function App() {
         gl={{ antialias: true, powerPreference: 'high-performance' }}
         onCreated={() => setReady(true)}
       >
-        <Scene onLockChange={setLocked} onSelectChange={setSelected} />
+        <Scene
+          onLockChange={setLocked}
+          onSelectChange={setSelected}
+          onActivePanel={setPanelData}
+          registerClose={registerClose}
+        />
       </Canvas>
 
       {/* ---- Loading screen (fades out once WebGL is ready) ---- */}
@@ -39,6 +50,17 @@ export default function App() {
         <div className="loader__name">TIM CHURCHILL</div>
         <div className="loader__sub">entering orbit…</div>
       </div>
+
+      {/* ---- Info panel: fixed region on the right (~50–90% x, 20–80% y) ---- */}
+      {panelData && (
+        <div className="panel-region">
+          <InfoPanel
+            key={panelData.slug}
+            data={panelData}
+            onClose={() => closeRef.current()}
+          />
+        </div>
+      )}
 
       {/* ---- HUD overlay ---- */}
       <div className="hud">

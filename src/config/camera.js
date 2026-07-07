@@ -43,9 +43,8 @@ export const FOCUS = {
 }
 
 // Compute the fly-to for a body. The camera settles at a shallow (~15°) vantage
-// on the approach side; we aim slightly to the right of the body so it lands on
-// the LEFT of the frame, leaving room on the RIGHT for the info panel — which
-// is anchored out to the side (panelAnchor) rather than above.
+// on the approach side; we aim to the right of the body so it lands on the LEFT
+// of the frame, clear of the fixed info-panel region on the right.
 // Inputs/outputs are plain [x,y,z] arrays.
 export function computeVantage(objPos, camPos, size) {
   const UP = new THREE.Vector3(0, 1, 0)
@@ -63,28 +62,17 @@ export function computeVantage(objPos, camPos, size) {
     .clone()
     .multiplyScalar(Math.cos(elev))
     .addScaledVector(UP, Math.sin(elev))
-  const camDist = size * 3.6 + 15
+  const camDist = size * 3.4 + 13
   const position = obj.clone().addScaledVector(dir, camDist)
 
-  // Camera-right at the vantage (screen-right when looking at the body).
+  // Camera-right at the vantage; aim right of the body so it sits left of center.
   const forward = obj.clone().sub(position).normalize()
   const right = forward.clone().cross(UP).normalize()
-
-  // The (compact) panel is anchored out to the right of the body; we aim
-  // between them so the body sits left-of-center and the panel sits to the
-  // right with comfortable margin.
-  const panelOffset = size * 1.3 + 16
-  const panelAnchor = obj
-    .clone()
-    .addScaledVector(right, panelOffset)
-    .addScaledVector(UP, size * 0.05)
-  const lookAt = obj.clone().addScaledVector(right, panelOffset * 0.5)
+  const lookAt = obj.clone().addScaledVector(right, camDist * 0.32)
 
   return {
     position: position.toArray(),
     lookAt: lookAt.toArray(),
-    panelAnchor: panelAnchor.toArray(),
-    panelDistanceFactor: camDist * 0.6,
   }
 }
 
