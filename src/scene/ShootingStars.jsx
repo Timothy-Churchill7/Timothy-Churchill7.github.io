@@ -64,7 +64,7 @@ export default function ShootingStars() {
     st.t += dt / st.duration
     if (st.t >= 1) {
       st.active = false
-      st.wait = 10 + Math.random() * 10 // next streak in 10–20s
+      st.wait = 5 + Math.random() * 8 // next streak in 5–13s
       if (matRef.current) matRef.current.opacity = 0
       return
     }
