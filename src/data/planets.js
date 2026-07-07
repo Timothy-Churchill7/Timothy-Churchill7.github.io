@@ -52,8 +52,7 @@ export const PLANETS = [
       subtitle: '',
       sections: [
         {
-          heading: 'Amherst College — B.S. Mathematics & Chemistry',
-          subtitle: 'Class of 2029',
+          heading: 'Amherst College Class of 29 — B.S. Mathematics & Chemistry',
           body: [
             'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well, but of doing good.',
             'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and enjoy my college experience.',
@@ -69,8 +68,7 @@ export const PLANETS = [
             ],
         },
         {
-          heading: 'Noble and Greenough School',
-          subtitle: 'Class of 2024',
+          heading: 'Noble and Greenough School Class of 2024',
           body: ['Nobles was an amazing place to go to high school: I was academically inspired and challenged, curiousity was encouraged and rewarded, and my teachers were passionate and  truly cared about me as a student and as a person.',
             'The community was strong, and I had the chance to contribute to welcoming the next wave of kids as an elected captain of cross country, skiing, and track, and through my engagement with the Mental Health Club and other communities on campus.',
           'I graduated Nobles with a 10.9/11 GPA earning Highest Academic Distinction. My favorite classes were Advanced Topics in Mathematics, Biochemistry Research, and Artificial Intelligence.',
