@@ -21,10 +21,13 @@
 //
 //   content      info-panel content:
 //     { title, subtitle?, body?, bullets?, sections?, links? }
-//       body     string | string[]              flowing paragraph(s)
-//       bullets  string[]                        bullet list
-//       sections { heading, body?, bullets? }[]  sub-sections
-//       links    { label, url }[]                outbound links
+//       body     string | string[]                          flowing paragraph(s)
+//       bullets  string[]                                   bullet list
+//       sections { heading, subtitle?, body?, bullets? }[]  sub-sections
+//       links    { label, url }[]                           outbound links
+//
+//   TEXT MARKUP: body & bullet strings support **bold** and *italic* (rendered
+//   by InfoPanel). No other markup — plain text only otherwise.
 //
 // ORBIT ORDER (sun -> out): education, work, leadership, research, athletics,
 // skills, finance. Radii are kept compact so travel between them is quick.
@@ -46,10 +49,11 @@ export const PLANETS = [
     icon: 'assets/planets/education.jpg',
     content: {
       title: 'Education',
-      subtitle: 'Amherst College · Noble & Greenough School',
+      subtitle: '',
       sections: [
         {
           heading: 'Amherst College — B.S. Mathematics & Chemistry',
+          subtitle: 'Class of 2029',
           body: [
             'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well, but of doing good.',
             'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and enjoy my college experience.',
@@ -58,23 +62,24 @@ export const PLANETS = [
 
           ],
           bullets: [
-            'Favorite Memory: Spending an hour trying to convince the rest of my spanish class that the kidnapper in Átame was the good guy',
-            'Favorite Professor: Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
-            'Favorite Building: Beneski Museum or The Cage',
-            'Least Favorite Building: SMUD',
+            '**Favorite Memory:** Spending an hour trying to convince the rest of my spanish class that the kidnapper in *Átame* was the good guy',
+            '**Favorite Professor:** Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
+            '**Favorite Building:** Beneski Museum or The Cage',
+            '**Least Favorite Building:** SMUD',
             ],
         },
         {
           heading: 'Noble and Greenough School',
+          subtitle: 'Class of 2024',
           body: ['Nobles was an amazing place to go to high school: I was academically inspired and challenged, curiousity was encouraged and rewarded, and my teachers were passionate and  truly cared about me as a student and as a person.',
             'The community was strong, and I had the chance to contribute to welcoming the next wave of kids as an elected captain of cross country, skiing, and track, and through my engagement with the Mental Health Club and other communities on campus.',
           'I graduated Nobles with a 10.9/11 GPA earning Highest Academic Distinction. My favorite classes were Advanced Topics in Mathematics, Biochemistry Research, and Artificial Intelligence.',
                 ],
           bullets: [
-            'Favorite Memory: Endless games of spikeball in between classes and after lunch',
-            'Favorite Teacher: Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
-            'Favorite Building: The Castle (Obviously)',
-            'Least Favorite Building: Baker',
+            '**Favorite Memory:** Endless games of spikeball in between classes and after lunch',
+            '**Favorite Teacher:** Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
+            '**Favorite Building:** The Castle (Obviously)',
+            '**Least Favorite Building:** Baker',
             ],
         },
       ],
@@ -91,12 +96,48 @@ export const PLANETS = [
         icon: 'assets/planets/gap-year.jpg',
         content: {
           title: 'Gap Year',
-          subtitle: '2024-2025',
-          bullets: [
-            'Where There Be Dragons — Andes & Amazon semester (Fall 2025): a 77-day program of full Spanish immersion, homestays, and travel across Bolivia and Peru, including a 3-day, fully self-planned backpacking trip up to 16,500 ft of elevation.',
-            'Worked at The Goldminer’s Daughter Lodge in Alta, UT (see Work Experience for full detail).',
-            'Took a 5-week, self-planned road trip from Salt Lake City through 13 national parks, ending in Boston.',
-            'Began Spanish translation work for a local immigration attorney — the start of what became the K.I.N.D. translation work.',
+          subtitle: 'September 2024–August 2025',
+          sections: [
+            {
+              heading: 'Fall',
+              body: '',
+              bullets: [
+                '**Favorite Memory:** ',
+                '**Personal Shoutout:** ',
+                '**Favorite Place:** ',
+                '**Worst Memory:** ',
+              ],
+            },
+            {
+              heading: 'Winter',
+              body: '',
+              bullets: [
+                '**Favorite Memory:** ',
+                '**Personal Shoutout:** ',
+                '**Favorite Place:** ',
+                '**Worst Memory:** ',
+              ],
+            },
+            {
+              heading: 'Spring',
+              body: '',
+              bullets: [
+                '**Favorite Memory:** ',
+                '**Personal Shoutout:** ',
+                '**Favorite Place:** ',
+                '**Worst Memory:** ',
+              ],
+            },
+            {
+              heading: 'Summer',
+              body: '',
+              bullets: [
+                '**Favorite Memory:** ',
+                '**Personal Shoutout:** ',
+                '**Favorite Place:** ',
+                '**Worst Memory:** ',
+              ],
+            },
           ],
         },
       },
@@ -114,7 +155,7 @@ export const PLANETS = [
     // icon: missing — no "work" graphic supplied (placeholder disc for now)
     content: {
       title: 'Work Experience',
-      subtitle: 'Select a moon to explore each role',
+      subtitle: '',
       body: 'The jobs I’ve had have ranged from being a rowdy camp counselor charged with bringing excitement and energy to the day to a professional, polished restaurant staff at a luxury ski resort. I can manage a full stack deployment of a company site just as well as a pile of 7 year olds climbing on me like a jungle gym. Whatever it is I’m doing, though, I always make sure to bring my personality: easy to laugh and smile but also ready to lend a hand or an ear when it’s needed. I’m a quick learner and I am excited to try new things, meet new people, and learn how to make more of an impact than I ever thought possible.',
     },
     moons: [
@@ -129,8 +170,14 @@ export const PLANETS = [
         icon: 'assets/planets/23-cubed.png',
         content: {
           title: '23 Cubed — Junior Developer',
-          subtitle: 'Jun–Aug 2022',
+          subtitle: 'June–August 2022',
           body: 'I took ownership of a complete full-stack redeployment of the company site (23cubed.com), and developed and deployed four client websites using Webflow, JavaScript, CSS, and HTML.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
       {
@@ -144,8 +191,14 @@ export const PLANETS = [
         icon: 'assets/planets/nobles-day-camp.jpg',
         content: {
           title: 'Nobles Day Camp — Swing Counselor',
-          subtitle: 'Jun–Aug 2024',
+          subtitle: 'June–August 2024',
           body: 'I adapted daily to new camper groups ages 6–13, coordinating activities and building relationships through rapidly changing group dynamics. I earned the “You’re a Hoot” award as one of the top three counselors of the week (~top 2%), recognized for leadership, adaptability, and fostering positive camper engagement.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
       {
@@ -159,8 +212,14 @@ export const PLANETS = [
         icon: 'assets/planets/goldminers-daughter.png',
         content: {
           title: "The Goldminer's Daughter Lodge — Dining Room Server",
-          subtitle: 'Dec 2024–Mar 2025 · Alta, UT',
+          subtitle: 'December 2024–March 2025',
           body: 'I served 50+ tables per shift in a high-volume luxury ski lodge, communicating in both English and Spanish in a fast-paced hospitality environment.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
       {
@@ -174,8 +233,14 @@ export const PLANETS = [
         icon: 'assets/planets/icode.jpeg',
         content: {
           title: 'iCode — Counselor',
-          subtitle: 'Jun–Aug 2021',
+          subtitle: 'June–August 2021',
           body: 'A coding and tech summer camp for kids; I was responsible for roughly 15 campers ages 7–12.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
     ],
@@ -192,7 +257,7 @@ export const PLANETS = [
     // icon: missing — no "leadership" graphic supplied (placeholder disc for now)
     content: {
       title: 'Leadership & Service',
-      subtitle: 'Select a moon to explore each role',
+      subtitle: '',
       body: 'My COVID tinted freshman year of high school was a time when I struggled with my mental health. Through a life changing backpacking trip and a strong support network, I had a much better time through the rest of high school. But I carried with me a love for the outdoors and an appreciation for the resources I had access to, that not everyone does. Since then, my service work has been defined by these two themes: working to connect people (friends, family, strangers) to the outdoors and provide them with physical and mental health support. I’ve learned how and when to lend a kind ear and I’ve seen people transform over three days in the forest. I’ve served my Amherst community as an EMT and helped people cross a language barrier to communicate their stress, their desires, and their life stories for their asylum cases.',
     },
     moons: [
@@ -207,8 +272,14 @@ export const PLANETS = [
         icon: 'assets/planets/aas-senator.webp',
         content: {
           title: 'AAS Senator',
-          subtitle: 'Association of Amherst Students · Sep 2025–Present',
+          subtitle: 'September 2025–Present',
           body: 'Twice elected as one of 8 Senators; appointed to 4 committees, including the Committees for Mental Health and Sustainability.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
       {
@@ -222,8 +293,14 @@ export const PLANETS = [
         icon: 'assets/planets/samaritans.jpg',
         content: {
           title: 'Samaritans Crisis Services — Helpline Volunteer',
-          subtitle: 'Aug 2023–May 2024',
+          subtitle: 'August 2023–May 2024',
           body: 'I completed 40+ hours of crisis-response training to staff weekly 3-hour helpline shifts. I assessed suicide risk and supported callers through 10–60+ minute conversations, making high-stakes decisions independently.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
       {
@@ -237,11 +314,17 @@ export const PLANETS = [
         icon: 'assets/planets/backpacking.avif',
         content: {
           title: 'Backpacking — Trip Leader',
-          subtitle: 'Jul 2024–Present',
-          body: 'I’ve initiated, organized, and led backpacking trips across New Hampshire, Vermont, California, South Dakota, Utah, and Peru — planning food, Leave No Trace principles, water treatment, budget, route, transportation, evacuation and emergency procedures, first aid, and reflection/improvement exercises for group sizes ranging from 1 to 14. Two trips I’m especially proud of:',
-          bullets: [
+          subtitle: 'July 2024–Present',
+          body: [
+            'I’ve initiated, organized, and led backpacking trips across New Hampshire, Vermont, California, South Dakota, Utah, and Peru — planning food, Leave No Trace principles, water treatment, budget, route, transportation, evacuation and emergency procedures, first aid, and reflection/improvement exercises for group sizes ranging from 1 to 14. Two trips I’m especially proud of:',
             'A 3-day trip up to Glaciar Quelccaya in Peru — planned and led for 12 people, conducted entirely in Spanish, on a limited budget.',
             'A 4-day trip into the Vermont woods just two months into college — bringing 14 people (mostly backpacking newbies) together to connect and make friends at the very start of college.',
+          ],
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
           ],
         },
       },
@@ -256,8 +339,14 @@ export const PLANETS = [
         icon: 'assets/planets/emergency-medicine.webp',
         content: {
           title: 'Amherst College EMS (Med-13)',
-          subtitle: 'Jan 2026–Present',
+          subtitle: 'January 2026–Present',
           body: 'I completed a 26-day EMT certification and deployed as a Med-13 responder, working 12-hour shifts responding to on-campus emergency calls beginning March 2026.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
       {
@@ -271,8 +360,14 @@ export const PLANETS = [
         icon: 'assets/planets/kind.jpg',
         content: {
           title: 'Spanish Translation & Interpretation — K.I.N.D.',
-          subtitle: 'Kids in Need of Defense · Jun 2025–Present',
+          subtitle: 'June 2025–Present',
           body: 'I completed Spanish fluency testing, interpreted live for an ongoing asylum case between an attorney and client, and continue to serve as an on-call legal document translator for immigration cases.',
+          bullets: [
+            '**Favorite Memory:** ',
+            '**Personal Shoutout:** ',
+            '**Favorite Place:** ',
+            '**Worst Memory:** ',
+          ],
         },
       },
     ],
@@ -289,14 +384,18 @@ export const PLANETS = [
     icon: 'assets/planets/research.png',
     content: {
       title: 'Research',
-      subtitle: 'Olshansky Chemistry Lab · Undergraduate Researcher · Jun 2026–Present',
+      subtitle: 'June 2026–Present',
       body: [
         'I synthesize quantum dot particles and run photocatalysis experiments to improve the efficiency of artificial photosynthesis.',
         'This lab is where my hard computational and technical skills meet a love for the planet and a desire to contribute to the fight against climate change — sustainability is the "why" behind the work.',
         'Using Claude Code, I wrote and deployed a holistic web-based data-visualization tool for TEM, UV-Vis, Emission, and Lifetime data.',
+        'Techniques & instrumentation: TEM, UV-Vis, PL emission, Schlenk line technique, lifetime measurement, mass spectrometry.',
       ],
       bullets: [
-        'Techniques & instrumentation: TEM, UV-Vis, PL emission, Schlenk line technique, lifetime measurement, mass spectrometry.',
+        '**Favorite Memory:** ',
+        '**Personal Shoutout:** ',
+        '**Favorite Place:** ',
+        '**Worst Memory:** ',
       ],
       links: [
         { label: 'Spectra Plotter — data-viz tool', url: 'https://spectra-plotter.onrender.com/' },
@@ -315,11 +414,17 @@ export const PLANETS = [
     icon: 'assets/planets/athletics.png',
     content: {
       title: 'Athletics',
-      subtitle: 'Amherst Cross Country & Track and Field · NCAA D3 · Sep 2025–Present',
+      subtitle: 'September 2025–Present',
       body: [
         'I walked on to Division III cross country and track & field after trying — and failing — to be recruited out of high school. Part of the motivation for taking a gap year was to keep developing as a runner and improve my odds of making the team.',
         'I commit 20+ hours a week as part of a New England D3 Championship and NESCAC Championship team.',
         'I’m an 800m specialist. Personal bests: an 800m split of 1:53.89, a 1500m of 4:04.19, and an 8k of 26:19.5.',
+      ],
+      bullets: [
+        '**Favorite Memory:** ',
+        '**Personal Shoutout:** ',
+        '**Favorite Place:** ',
+        '**Worst Memory:** ',
       ],
     },
   },
@@ -335,7 +440,7 @@ export const PLANETS = [
     // icon: missing — no "skills" graphic supplied (placeholder disc for now)
     content: {
       title: 'Skills & Certifications',
-      subtitle: 'Select a moon to explore each group',
+      subtitle: '',
     },
     moons: [
       {
@@ -409,14 +514,18 @@ export const PLANETS = [
     icon: 'assets/planets/finance.jpg',
     content: {
       title: 'Finance',
-      subtitle: 'Morgan Stanley · MAP Investment Banking Fellow · Mar 2026–Present',
+      subtitle: 'March 2026–Present',
       body: [
         'I analyzed a simulated tech M&A deal for a security-compliance company, synthesizing ambiguous market, competitive, and growth data into a recommendation I presented live to Morgan Stanley bankers on the deal team.',
         'I was personally responsible for making the final call on whether or not to recommend the investment.',
         'I wanted to test this path out — and, having done so, I’ve decided not to pursue investment banking going forward.',
+        'WSP (Wall Street Prep) Financial Accounting & Analysis certification.',
       ],
       bullets: [
-        'WSP (Wall Street Prep) Financial Accounting & Analysis certification.',
+        '**Favorite Memory:** ',
+        '**Personal Shoutout:** ',
+        '**Favorite Place:** ',
+        '**Worst Memory:** ',
       ],
     },
   },
