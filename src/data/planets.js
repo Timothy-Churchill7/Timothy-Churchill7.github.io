@@ -58,10 +58,10 @@ export const PLANETS = [
 
           ],
           bullets: [
-            '<u>Favorite Memory:</u> Spending an hour trying to convince the rest of my spanish class that the kidnapper in <em>Átame</em> was the good guy',
-            '<u>Favorite Professor:</u> Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
-            '<u>Favorite Building:</u> Beneski Museum or The Cage',
-            '<u>Least Favorite Building:</u> SMUD',
+            'Favorite Memory: Spending an hour trying to convince the rest of my spanish class that the kidnapper in Átame was the good guy',
+            'Favorite Professor: Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
+            'Favorite Building: Beneski Museum or The Cage',
+            'Least Favorite Building: SMUD',
             ],
         },
         {
@@ -71,10 +71,10 @@ export const PLANETS = [
           'I graduated Nobles with a 10.9/11 GPA earning Highest Academic Distinction. My favorite classes were Advanced Topics in Mathematics, Biochemistry Research, and Artificial Intelligence.',
                 ],
           bullets: [
-            '<u>Favorite Memory:</u> Endless games of spikeball in between classes and after lunch',
-            '<u>Favorite Teacher:</u> Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
-            '<u>Favorite Building:</u> The Castle (Obviously)',
-            '<u>Least Favorite Building:</u> Baker',
+            'Favorite Memory: Endless games of spikeball in between classes and after lunch',
+            'Favorite Teacher: Señor Mr. Profe Coach Ulrich was my teacher, my coach, and my advisor through it all - carpe diem',
+            'Favorite Building: The Castle (Obviously)',
+            'Least Favorite Building: Baker',
             ],
         },
       ],
