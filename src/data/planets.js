@@ -516,7 +516,7 @@ export const PLANETS = [
   {
     slug: 'finance',
     name: 'Finance',
-    color: '#162f88ff',
+    color: '#162f88',
     size: 4,
     orbitRadius: 118,
     orbitSpeed: 0.02,
