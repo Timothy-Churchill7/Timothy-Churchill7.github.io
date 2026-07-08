@@ -57,18 +57,18 @@ export const PLANETS = [
             'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well, but of doing good.',
             'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and enjoy my college experience.',
             'So far, I have a 3.9/4.0 GPA and my favorite classes have been The Cinema of Pedro Almodóvar (Spanish) and Groups, Rings, and Fields (Math).',
-            'I have loved my college experience up to this point and I am so grateful to all my friends and professors that have made my it what it is so far.',
+            'I have loved my college experience up to this point and I am so grateful to all my friends and professors that have made it what it is so far.',
 
           ],
           bullets: [
-            '**Favorite Memory:** Spending an hour trying to convince the rest of my spanish class that the kidnapper in *Átame* was the good guy',
+            '**Favorite Memory:** Spending an hour trying to convince the rest of my Spanish class that the kidnapper in *Átame* was the good guy',
             '**Personal Shoutout:** Professor Sanchez-Eppler taught my seminar, and inspired confidence and a desire for reflection on our families and experience with language',
             '**Favorite Building:** Beneski Museum or The Cage',
             ],
         },
         {
           heading: 'Noble and Greenough School Class of \'24',
-          body: ['Nobles was an amazing place to go to high school: I was academically inspired and challenged, curiousity was encouraged and rewarded, and my teachers were passionate and  truly cared about me as a student and as a person.',
+          body: ['Nobles was an amazing place to go to high school: I was academically inspired and challenged, curiosity was encouraged and rewarded, and my teachers were passionate and  truly cared about me as a student and as a person.',
             'The community was strong, and I had the chance to contribute to welcoming the next wave of kids as an elected captain of cross country, skiing, and track, and through my engagement with the Mental Health Club and other communities on campus.',
           'I graduated Nobles with a 10.9/11 GPA earning Highest Academic Distinction. My favorite classes were Advanced Topics in Mathematics, Biochemistry Research, and Artificial Intelligence.',
                 ],
@@ -104,7 +104,7 @@ export const PLANETS = [
                 '**Favorite Memory:** Playing fútbol and chewing Coca with my homestay brother Romario and his friends',
                 '**Personal Shoutout:** My three instructors, Yim, Maren, and Jose, and the eight other kids I took the journey with. (Even Rory) ',
                 '**Favorite Place:** Sleeping under the stars in the Quelccaya Glacier, on the last day of the last trek right at the end of our semester',
-                '**Worst Memory:** Food poisining on the 100º, 12 hour night bus from Lake Titicaca to Puerto Maldonado',
+                '**Worst Memory:** Food poisoning on the 100º, 12 hour night bus from Lake Titicaca to Puerto Maldonado',
                 '**Favorite Quechua Word:** Tuyusiki',
               ],
             },
@@ -114,7 +114,7 @@ export const PLANETS = [
                 'I learned how to live and operate completely on my own and show up for something with accountability and consistency, and how to properly ski powder, after being raised on the East Coast.',
               ],
               bullets: [
-                '**Favorite Memory:** Showing up to work early to fold hundreds oragami napkin hearts for Valentines day',
+                '**Favorite Memory:** Showing up to work early to fold hundreds of origami napkin hearts for Valentine\'s Day',
                 '**Personal Shoutout:** My fellow bussers, Lara and Diana',
                 '**Favorite Trail:** High Traverse --> Garbage Chute --> North Rustler',
                 '**Biggest Wipeout:** Attempting to send a cliff in Supreme Bowl, double ejecting and rolling 50 feet down the mountain',
@@ -126,7 +126,7 @@ export const PLANETS = [
                     'We learned how to sleep in a car, how to budget and shop and drive for 12 hours straight, and how to navigate the endlessly confusing NPS reservation system. We saw friends and family along the way and made more wherever we went. ',
                   ],
               bullets: [
-                '**Favorite Memory:** Summitting Cloud\'s Rest in Yosemite and seeing the Valley unfold endlessley in every direction',
+                '**Favorite Memory:** Summiting Cloud\'s Rest in Yosemite and seeing the Valley unfold endlessly in every direction',
                 '**Personal Shoutout:** Lili, my travel partner',
                 '**Favorite Place:** Little Yosemite Valley',
                 '**Worst Memory:** Hitting a deer in a raging rainstorm on the first day of the trip',
@@ -139,7 +139,7 @@ export const PLANETS = [
               bullets: [
                 '**Favorite Memory:** Taking a sailboat out in a hurricane with my dad and uncle',
                 '**Personal Shoutout:** My family',
-                '**Favorite Game:** Bananagrams',,
+                '**Favorite Game:** Bananagrams',
               ],
             },
           ],
@@ -180,7 +180,7 @@ export const PLANETS = [
           ],
           bullets: [
             '**Favorite Memory:** Being "almost done" with the plugins page for more than a week',
-            '**Personal Shoutout:** My Boss, Ben, who trusted me immediately with responsibiltiy and continued to put more faith in me as the summer progressed',
+            '**Personal Shoutout:** My Boss, Ben, who trusted me immediately with responsibility and continued to put more faith in me as the summer progressed',
             '**Favorite Place:** My desk, from the hours of 11PM - 2AM',
             '**Favorite Feature to Code:** The zoom effect on the bottom middle panel of each Project display',
           ],
@@ -220,13 +220,13 @@ export const PLANETS = [
         content: {
           title: "The Goldminer's Daughter Lodge — Dining Room Server",
           subtitle: 'December 2024–March 2025',
-          body: 'Working at Goldminer\'s was my first full time, proper job experience. I was by far the youngest in the restaraunt, and I tried to bring energy and positivity every morning. The other two bussers were both J1 Visa holders from South America, and they helped me practice my Spanish and introduced me to Argentinian Rock music.'
+          body: 'Working at Goldminer\'s was my first full time, proper job experience. I was by far the youngest in the restaurant, and I tried to bring energy and positivity every morning. The other two bussers were both J1 Visa holders from South America, and they helped me practice my Spanish and introduced me to Argentinian Rock music.'
             ,
           bullets: [
             '**Favorite Memory:** Blasting "La Morena" by Oro Solido while wiping down the tables after the last guests left',
             '**Personal Shoutout:** Lara and Diana',
             '**Favorite Special Leftovers:** Short Ribs and Mashed Potatoes',
-            '**Worst Costumer Experience:** Someone insiting on a "3 minute" boiled egg and then raging at me when it was basically still raw (duh)',
+            '**Worst Customer Experience:** Someone insisting on a "3 minute" boiled egg and then raging at me when it was basically still raw (duh)',
           ],
         },
       },
@@ -242,7 +242,7 @@ export const PLANETS = [
         content: {
           title: 'iCode — Counselor',
           subtitle: 'June–August 2021',
-          body: 'Working at iCode was my first time having a job. It was an introduction to responsiblity and accountability. I learned how to earn respect from the campers without sacrificing their trust and their ability to share their joy with me.',
+          body: 'Working at iCode was my first time having a job. It was an introduction to responsibility and accountability. I learned how to earn respect from the campers without sacrificing their trust and their ability to share their joy with me.',
           bullets: [
             '**Favorite Memory:** Organizing a soccer game that went way over break time',
             '**Favorite Place:** The park down the street where we went after lunch',
@@ -279,8 +279,8 @@ export const PLANETS = [
         content: {
           title: 'AAS Senator',
           subtitle: 'September 2025–Present',
-          body: ['Serving on AAS as part of student government has been one of the most rewarding parts of my Amherst experience. It allows me to make my voice heard to to advocate for what I believe in.',
-                'As a senator, I was elected to 4 committees: Student Council, The Appointments Board, Sustainability (chair), and The Mental Health Committee. These allow my to have a heavier role in school affairs within these specific categories.',
+          body: ['Serving on AAS as part of student government has been one of the most rewarding parts of my Amherst experience. It allows me to make my voice heard to advocate for what I believe in.',
+                'As a senator, I was elected to 4 committees: Student Council, The Appointments Board, Sustainability (chair), and The Mental Health Committee. These allow me to have a heavier role in school affairs within these specific categories.',
                 'Being part of AAS also gives us the ability to host senate projects. These are opportunities to engage with the community and bring a fun spirit to campus. My two projects were Snow Your Senator: a day of snowballs and candy in the middle of February, and a school wide spikeball tournament with a watermelon for the winner.',
               ],
           bullets: [
@@ -302,7 +302,7 @@ export const PLANETS = [
         content: {
           title: 'Samaritans Crisis Services — Helpline Volunteer',
           subtitle: 'August 2023–May 2024, Jul 2026 - Present',
-          body: ['Samaritans was my first real volunteer experience. I did my training over the summer and started answering the phone as the school year began. The combination of high pressure conversations and an inevitable reminder of my own experiences made is simultaenously one of the most stressful and rewarding parts of my life, but after a year I had to step away.',
+          body: ['Samaritans was my first real volunteer experience. I did my training over the summer and started answering the phone as the school year began. The combination of high pressure conversations and an inevitable reminder of my own experiences made it simultaneously one of the most stressful and rewarding parts of my life, but after a year I had to step away.',
           'Years later, I am once again beginning refresher training to get back on the line as a completely different person, because every day I look around and feel grateful towards the people around me--something that not everyone has.',
           ],
 
@@ -327,7 +327,7 @@ export const PLANETS = [
             'Backpacking is my favorite thing in the world. At first I followed other people into the wilderness and let them teach me how to enjoy the simplicity of doing nothing but walk. Eventually, I began to set off on my own.',
             'I’ve initiated, organized, and led backpacking trips across New Hampshire, Vermont, California, South Dakota, Utah, and Peru — planning food, Leave No Trace principles, water treatment, bear safety, budget, route, transportation, evacuation and emergency procedures, first aid, and reflection activities for group sizes ranging from 1 to 14. Two trips I’m especially proud of:',
             'A 3-day trip up to Glaciar Quelccaya in Peru — planned and led for 12 people, organized entirely in Spanish and bringing my group over 5000m of elevation.',
-            'A 4-day trip into the Vermont woods just six weeks into college, bringing 13 other freshman together to connect away from the chaos of campus.',
+            'A 4-day trip into the Vermont woods just six weeks into college, bringing 13 other freshmen together to connect away from the chaos of campus.',
           ],
           bullets: [
             '**Favorite Memory:** Reading Cloud Cuckoo Land next to Hagerman\'s Lake on a layover at HMI',
@@ -354,7 +354,7 @@ export const PLANETS = [
           ],
           bullets: [
             '**Favorite Memory:** Mass Casualty Incident Drill',
-            '**Personal Shoutout:** My EMT course inscructor Scott',
+            '**Personal Shoutout:** My EMT course instructor Scott',
             '**Favorite Skill:** Backboarding',
           ],
         },
@@ -371,12 +371,11 @@ export const PLANETS = [
         content: {
           title: 'Spanish Translation & Interpretation — K.I.N.D.',
           subtitle: 'June 2025–Present',
-          body: 'I completed Spanish fluency testing, interpreted live for an ongoing asylum case between an attorney and client, and continue to serve as an on-call legal document translator for immigration cases.',
+          body: ['As the Summer of 2025 progressed and the ICE crackdown intensified, I was horrified. As a naturalized U.S. Citizen I was safe, but I had friends from work and travel that weren\'t. I decided to contribute what I could. For me, that was my Spanish.',
+            'I completed Spanish fluency testing and began to interpret live and on the phone for a local volunteer immigration attorney and her client. I also signed up to be an on-call document translator for court proceedings, which I have been doing since then.',
+          ],
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Personal Shoutout:** Celia',
           ],
         },
       },
@@ -396,16 +395,14 @@ export const PLANETS = [
       title: 'Research',
       subtitle: 'June 2026–Present',
       body: [
-        'I synthesize quantum dot particles and run photocatalysis experiments to improve the efficiency of artificial photosynthesis.',
-        'This lab is where my hard computational and technical skills meet a love for the planet and a desire to contribute to the fight against climate change — sustainability is the "why" behind the work.',
-        'Using Claude Code, I wrote and deployed a holistic web-based data-visualization tool for TEM, UV-Vis, Emission, and Lifetime data.',
-        'Techniques & instrumentation: TEM, UV-Vis, PL emission, Schlenk line technique, lifetime measurement, mass spectrometry.',
+        'The Olshansky Lab is an alternative energy research lab. We synthesize quantum dot particles and run photocatalysis experiments to improve the efficiency of artificial photosynthesis.',
+        'The reason I joined was because of my love for the outdoors and my experience seeing it slowly collapse around us. I want to eventually pursue a career in alternative energy and climate change mitigation, and being involved with the science behind one of the ways we can tackle global warming is incredibly exciting.',
+        'In addition to my normal research contribution, I wrote and deployed a holistic web-based data-visualization tool for TEM, UV-Vis, Emission, and Lifetime data using Claude Code',
       ],
       bullets: [
-        '**Favorite Memory:** ',
-        '**Personal Shoutout:** ',
-        '**Favorite Place:** ',
-        '**Worst Memory:** ',
+        '**Techniques and Instrumentation: TEM, UV-Vis, PL emission, Schlenk Line, Lifetime Measurement, Mass Spectrometry** ',
+        '**Personal Shoutout:** Dr. Olshansky & Yurii',
+        '**Favorite Place:** Hood 2 (not Hood 1)',
       ],
       links: [
         { label: 'Holistic Data Visualization Tool Plotter', url: 'https://spectra-plotter.onrender.com/' },
@@ -427,14 +424,14 @@ export const PLANETS = [
       subtitle: 'September 2025–Present',
       body: [
         'I walked on to Division III cross country and track & field after trying — and failing — to be recruited out of high school. Part of the motivation for taking a gap year was to keep developing as a runner and improve my odds of making the team.',
-        'I commit 20+ hours a week as part of a New England D3 Championship and NESCAC Championship team.',
-        'I’m an 800m specialist. Personal bests: an 800m split of 1:53.89, a 1500m of 4:04.19, and an 8k of 26:19.5.',
+        'But I performed well enough at the tryouts to make it, and now I commit 20+ hours a week to ACXC. Being on the team has been a source of camaraderie, accountability, and spirit that has greatly enhanced my college experience so far.',
       ],
       bullets: [
-        '**Favorite Memory:** ',
-        '**Personal Shoutout:** ',
-        '**Favorite Place:** ',
-        '**Worst Memory:** ',
+        '**Favorite Memory:** The 4x800m at the 2026 NESCAC Championship',
+        '**Personal Shoutout:** The Boix',
+        '**Favorite Event:** The 800m',
+        '**800m:** 1:53.89 (split)',
+        '**1500m:** 4:04.19'
       ],
     },
   },
@@ -470,6 +467,9 @@ export const PLANETS = [
             'Google Suite',
             'Microsoft Suite',
             'Claude & Claude Code',
+            'Webflow',
+            'Extensive Spectroscopy Techniques (see Research Planet)'
+
           ],
         },
       },
@@ -484,8 +484,8 @@ export const PLANETS = [
         icon: 'assets/planets/languages.png',
         content: {
           title: 'Languages',
-          subtitle: 'Spoken languages',
-          bullets: ['English', 'Spanish'],
+          subtitle: 'languages',
+          bullets: ['English: Native', 'Spanish: Working Proficiency'],
         },
       },
       {
@@ -507,6 +507,7 @@ export const PLANETS = [
             'Claude 101',
             'AI Fluency',
             'ASA Bareboat Cruising',
+            'Wall Street Prep Accounting & Financial Statement Analysis'
           ],
         },
       },
@@ -515,7 +516,7 @@ export const PLANETS = [
   {
     slug: 'finance',
     name: 'Finance',
-    color: '#2e50c8',
+    color: '#162f88ff',
     size: 4,
     orbitRadius: 118,
     orbitSpeed: 0.02,
@@ -528,14 +529,10 @@ export const PLANETS = [
       body: [
         'I analyzed a simulated tech M&A deal for a security-compliance company, synthesizing ambiguous market, competitive, and growth data into a recommendation I presented live to Morgan Stanley bankers on the deal team.',
         'I was personally responsible for making the final call on whether or not to recommend the investment.',
-        'I wanted to test this path out — and, having done so, I’ve decided not to pursue investment banking going forward.',
-        'WSP (Wall Street Prep) Financial Accounting & Analysis certification.',
+        'It was a really exciting experience, and a really great way to test this path out. However, it\'s worth noting that I\'ve decided not to pursue investment banking going forward.',
       ],
       bullets: [
-        '**Favorite Memory:** ',
-        '**Personal Shoutout:** ',
-        '**Favorite Place:** ',
-        '**Worst Memory:** ',
+        '**Personal Shoutout:** ACXC Class of \'28',
       ],
     },
   },
