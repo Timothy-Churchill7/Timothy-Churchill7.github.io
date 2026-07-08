@@ -3,11 +3,12 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 // ---------------------------------------------------------------------------
-// EasterEgg — a tiny striped object that drifts across the background (~1 min
-// to cross) and gently spins. It does NOT appear until 30s after load. Candy-
-// cane red diagonal stripes mark it as intentional (not stray debris). Tagged
-// selectable with kind 'easteregg'; clicking it TOGGLES the sun's face overlay
-// (see SelectionManager + Scene).
+// EasterEgg — a tiny striped EGG that drifts across the background (~1 min to
+// cross) and gently tumbles. It does NOT appear until 30s after load. Diagonal
+// candy-cane stripes mark it as intentional (not stray debris), and it's built
+// from a flat-shaded icosphere so it wears the same faceted / low-poly look as
+// the planets. Tagged selectable with kind 'easteregg'; clicking it TOGGLES the
+// sun's face overlay (see SelectionManager + Scene).
 // ---------------------------------------------------------------------------
 
 const CROSS = 190 // half-width of the drift path
@@ -15,6 +16,25 @@ const PERIOD = 60 // seconds to cross from one side to the other
 const APPEAR_DELAY = 30000 // ms before the egg first appears
 const Y = 32
 const Z = -95
+const RADIUS = 0.65 // base icosphere radius before the egg deformation
+
+// A faceted egg: start from a low-detail icosphere (same family as the planets),
+// then deform each vertex — stretch along Y and taper the horizontal section so
+// the top comes to a point while the bottom stays full. Deformation depends only
+// on the vertex's position, so the duplicated per-face vertices stay seam-free.
+function makeEggGeometry() {
+  const geo = new THREE.IcosahedronGeometry(RADIUS, 1)
+  const pos = geo.attributes.position
+  const v = new THREE.Vector3()
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i)
+    const ny = v.y / RADIUS // -1 (bottom) .. 1 (top)
+    const taper = 1 - 0.28 * ny // pointier top, fuller bottom
+    pos.setXYZ(i, v.x * taper, v.y * 1.42, v.z * taper)
+  }
+  geo.computeVertexNormals()
+  return geo
+}
 
 // Diagonal red-on-light stripes -> reads as a barber-pole/candy-cane on a ball.
 function makeStripeTexture() {
@@ -24,7 +44,7 @@ function makeStripeTexture() {
   const ctx = c.getContext('2d')
   ctx.fillStyle = '#eef0f7'
   ctx.fillRect(0, 0, size, size)
-  ctx.strokeStyle = '#e23b3b'
+  ctx.strokeStyle = '#8524caff'
   ctx.lineWidth = 15
   for (let i = -size; i < size * 2; i += 40) {
     ctx.beginPath()
@@ -42,6 +62,7 @@ export default function EasterEgg() {
   const mesh = useRef()
   const start = useRef(null)
   const stripes = useMemo(makeStripeTexture, [])
+  const eggGeo = useMemo(makeEggGeometry, [])
   const [appeared, setAppeared] = useState(false)
 
   useEffect(() => {
@@ -72,13 +93,14 @@ export default function EasterEgg() {
     <group ref={group}>
       <mesh
         ref={mesh}
+        geometry={eggGeo}
         userData={{ select: { kind: 'easteregg' } }}
         onPointerOver={() => (document.body.style.cursor = 'pointer')}
         onPointerOut={() => (document.body.style.cursor = 'default')}
       >
-        <sphereGeometry args={[0.65, 24, 24]} />
         <meshStandardMaterial
           map={stripes}
+          flatShading
           roughness={0.5}
           metalness={0.2}
           emissive="#3a2233"

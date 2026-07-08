@@ -532,7 +532,7 @@ export const PLANETS = [
         'It was a really exciting experience, and a really great way to test this path out. However, it\'s worth noting that I\'ve decided not to pursue investment banking going forward.',
       ],
       bullets: [
-        '**Personal Shoutout:** ACXC Class of \'28',
+        '**Personal Shoutout:** Amal and the Make A Play Foundation',
       ],
     },
   },
