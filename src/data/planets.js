@@ -223,7 +223,7 @@ export const PLANETS = [
           body: 'Working at Goldminer\'s was my first full time, proper job experience. I was by far the youngest in the restaraunt, and I tried to bring energy and positivity every morning. The other two bussers were both J1 Visa holders from South America, and they helped me practice my Spanish and introduced me to Argentinian Rock music.'
             ,
           bullets: [
-            '**Favorite Memory:** Blasting "La Moreana" by Oro Solido while wiping down the tables after the last guests left',
+            '**Favorite Memory:** Blasting "La Morena" by Oro Solido while wiping down the tables after the last guests left',
             '**Personal Shoutout:** Lara and Diana',
             '**Favorite Special Leftovers:** Short Ribs and Mashed Potatoes',
             '**Worst Costumer Experience:** Someone insiting on a "3 minute" boiled egg and then raging at me when it was basically still raw (duh)',
@@ -264,7 +264,7 @@ export const PLANETS = [
     content: {
       title: 'Leadership & Service',
       subtitle: '',
-      body: 'My COVID tinted freshman year of high school was a time when I struggled with my mental health. Through a life changing backpacking trip and a strong support network, I had a much better time through the rest of high school. But I carried with me a love for the outdoors and an appreciation for the resources I had access to, that not everyone does. Since then, my service work has been defined by these two themes: working to connect people (friends, family, strangers) to the outdoors and provide them with physical and mental health support. I’ve learned how and when to lend a kind ear and I’ve seen people transform over three days in the forest. I’ve served my Amherst community as an EMT and helped people cross a language barrier to communicate their stress, their desires, and their life stories for their asylum cases.',
+      body: 'During my COVID freshman year of high school, I struggled with my mental health. Through a life changing backpacking trip and a strong support network, my sophomore year and beyond was much better. I carried with me a love for the outdoors and an appreciation for the resources I had access to, that not everyone does. Since then, my service work has been defined by two themes: working to connect people (friends, family, strangers) to the outdoors and provide them with physical and mental health support. I’ve learned how and when to lend a kind ear and I’ve seen people transform over three days in the forest. I’ve served my Amherst community as an EMT and helped people cross a language barrier to communicate their stress, their desires, and their life stories for their asylum cases.',
     },
     moons: [
       {
@@ -279,12 +279,14 @@ export const PLANETS = [
         content: {
           title: 'AAS Senator',
           subtitle: 'September 2025–Present',
-          body: 'Twice elected as one of 8 Senators; appointed to 4 committees, including the Committees for Mental Health and Sustainability.',
+          body: ['Serving on AAS as part of student government has been one of the most rewarding parts of my Amherst experience. It allows me to make my voice heard to to advocate for what I believe in.',
+                'As a senator, I was elected to 4 committees: Student Council, The Appointments Board, Sustainability (chair), and The Mental Health Committee. These allow my to have a heavier role in school affairs within these specific categories.',
+                'Being part of AAS also gives us the ability to host senate projects. These are opportunities to engage with the community and bring a fun spirit to campus. My two projects were Snow Your Senator: a day of snowballs and candy in the middle of February, and a school wide spikeball tournament with a watermelon for the winner.',
+              ],
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Favorite Memory:** Getting nailed in the back of the head by a stranger during my Snow Your Senator project (then asked for candy)',
+            '**Personal Shoutout:** President Shane \'26',
+            '**Favorite Place:** The Red Room',
           ],
         },
       },
@@ -299,13 +301,13 @@ export const PLANETS = [
         icon: 'assets/planets/samaritans.jpg',
         content: {
           title: 'Samaritans Crisis Services — Helpline Volunteer',
-          subtitle: 'August 2023–May 2024',
-          body: 'I completed 40+ hours of crisis-response training to staff weekly 3-hour helpline shifts. I assessed suicide risk and supported callers through 10–60+ minute conversations, making high-stakes decisions independently.',
+          subtitle: 'August 2023–May 2024, Jul 2026 - Present',
+          body: ['Samaritans was my first real volunteer experience. I did my training over the summer and started answering the phone as the school year began. The combination of high pressure conversations and an inevitable reminder of my own experiences made is simultaenously one of the most stressful and rewarding parts of my life, but after a year I had to step away.',
+          'Years later, I am once again beginning refresher training to get back on the line as a completely different person, because every day I look around and feel grateful towards the people around me--something that not everyone has.',
+          ],
+
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Personal Shoutout:** The Callers and the Responders',
           ],
         },
       },
@@ -322,15 +324,16 @@ export const PLANETS = [
           title: 'Backpacking — Trip Leader',
           subtitle: 'July 2024–Present',
           body: [
-            'I’ve initiated, organized, and led backpacking trips across New Hampshire, Vermont, California, South Dakota, Utah, and Peru — planning food, Leave No Trace principles, water treatment, budget, route, transportation, evacuation and emergency procedures, first aid, and reflection/improvement exercises for group sizes ranging from 1 to 14. Two trips I’m especially proud of:',
-            'A 3-day trip up to Glaciar Quelccaya in Peru — planned and led for 12 people, conducted entirely in Spanish, on a limited budget.',
-            'A 4-day trip into the Vermont woods just two months into college — bringing 14 people (mostly backpacking newbies) together to connect and make friends at the very start of college.',
+            'Backpacking is my favorite thing in the world. At first I followed other people into the wilderness and let them teach me how to enjoy the simplicity of doing nothing but walk. Eventually, I began to set off on my own.',
+            'I’ve initiated, organized, and led backpacking trips across New Hampshire, Vermont, California, South Dakota, Utah, and Peru — planning food, Leave No Trace principles, water treatment, bear safety, budget, route, transportation, evacuation and emergency procedures, first aid, and reflection activities for group sizes ranging from 1 to 14. Two trips I’m especially proud of:',
+            'A 3-day trip up to Glaciar Quelccaya in Peru — planned and led for 12 people, organized entirely in Spanish and bringing my group over 5000m of elevation.',
+            'A 4-day trip into the Vermont woods just six weeks into college, bringing 13 other freshman together to connect away from the chaos of campus.',
           ],
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Favorite Memory:** Reading Cloud Cuckoo Land next to Hagerman\'s Lake on a layover at HMI',
+            '**Personal Shoutout:** Kayla, Michael, Sophie, and all my other trip leaders',
+            '**Best View:** The Devil\'s Chair from White Canyon, UT',
+            '**Favorite Meal: Ramen Bombs** ',
           ],
         },
       },
@@ -346,12 +349,13 @@ export const PLANETS = [
         content: {
           title: 'Amherst College EMS (Med-13)',
           subtitle: 'January 2026–Present',
-          body: 'I completed a 26-day EMT certification and deployed as a Med-13 responder, working 12-hour shifts responding to on-campus emergency calls beginning March 2026.',
+          body: ['My ACEMS journey began with a 250 hour EMT course in 26 days over January of 2026. Since then, I\'ve been working roughly biweekly shifts and learning the difference between classroom knowledge and actual EMT work.',
+                'I see ACEMS as a way for me to practice caring unconditionally, connect with the community, and improve my ability to stay composed and confident under pressure.',
+          ],
           bullets: [
-            '**Favorite Memory:** ',
-            '**Personal Shoutout:** ',
-            '**Favorite Place:** ',
-            '**Worst Memory:** ',
+            '**Favorite Memory:** Mass Casualty Incident Drill',
+            '**Personal Shoutout:** My EMT course inscructor Scott',
+            '**Favorite Skill:** Backboarding',
           ],
         },
       },
@@ -404,7 +408,7 @@ export const PLANETS = [
         '**Worst Memory:** ',
       ],
       links: [
-        { label: 'Spectra Plotter — data-viz tool', url: 'https://spectra-plotter.onrender.com/' },
+        { label: 'Holistic Data Visualization Tool Plotter', url: 'https://spectra-plotter.onrender.com/' },
       ],
     },
   },
