@@ -159,7 +159,7 @@ export const PLANETS = [
     // icon: missing — no "work" graphic supplied (placeholder disc for now)
     content: {
       title: 'Work Experience',
-      subtitle: 'Click on Moons for more details',
+      subtitle: 'See Moons for more details',
       body: 'The jobs I’ve had have ranged from being a rowdy camp counselor charged with bringing excitement and energy to the day to a professional, polished restaurant staff at a luxury ski resort. I can manage a full stack deployment of a company site just as well as a pile of 7 year olds climbing on me like a jungle gym. Whatever it is I’m doing, though, I always make sure to bring good humor and energy. I’m a quick learner and I am excited to try new things, meet new people, and learn how to make more of an impact than I ever thought possible.',
     },
     moons: [
@@ -447,7 +447,7 @@ export const PLANETS = [
     // icon: missing — no "skills" graphic supplied (placeholder disc for now)
     content: {
       title: 'Skills & Certifications',
-      subtitle: '',
+      subtitle: 'See Moons for more details',
     },
     moons: [
       {
@@ -504,8 +504,7 @@ export const PLANETS = [
             'EMT (Emergency Medical Technician)',
             'Wilderness First Aid',
             'Spanish Translation & Interpretation for Kids in Need of Defense (K.I.N.D.)',
-            'Claude 101',
-            'AI Fluency',
+            'Claude 101 & AI Fluency',
             'ASA Bareboat Cruising',
             'Wall Street Prep Accounting & Financial Statement Analysis'
           ],
