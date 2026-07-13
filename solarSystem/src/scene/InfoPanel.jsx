@@ -4,7 +4,7 @@ import { useState } from 'react'
 // InfoPanel — the resume card. Rendered as a fixed DOM overlay (by App) in a
 // fixed screen-space region on the right, shared by every planet, moon, and the
 // sun's About Me. Content model (src/data/planets.js, src/data/about.js):
-//   { title, subtitle?, body?, bullets?, sections?, links? }
+//   { title, subtitle?, subtitleUrl?, body?, bullets?, sections?, links? }
 // The logo shows `data.icon` if present, else a colored disc with the initial.
 // ---------------------------------------------------------------------------
 
@@ -66,7 +66,19 @@ export default function InfoPanel({ data, onClose }) {
         </div>
         <div className="info-panel__heading">
           <div className="info-panel__title">{c.title}</div>
-          {c.subtitle && <div className="info-panel__subtitle">{c.subtitle}</div>}
+          {c.subtitle &&
+            (c.subtitleUrl ? (
+              <a
+                className="info-panel__subtitle"
+                href={c.subtitleUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {c.subtitle} ↗
+              </a>
+            ) : (
+              <div className="info-panel__subtitle">{c.subtitle}</div>
+            ))}
         </div>
       </div>
 

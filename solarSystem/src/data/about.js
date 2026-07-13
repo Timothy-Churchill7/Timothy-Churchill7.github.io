@@ -14,6 +14,7 @@ export const ABOUT_ME = {
   content: {
     title: 'About Me',
     subtitle: 'Tim Churchill',
+    subtitleUrl: 'https://www.linkedin.com/in/timothychurchill-/',
     sections: [
       {
         heading: 'Hobbies & Interests',

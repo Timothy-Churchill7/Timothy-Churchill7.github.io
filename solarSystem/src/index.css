@@ -310,6 +310,18 @@ canvas {
   color: color-mix(in srgb, var(--accent, #9db4e8) 55%, #ffffff);
   margin-top: 6px;
 }
+/* Linked subtitle (e.g. the sun's About Me -> LinkedIn) */
+a.info-panel__subtitle {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+a.info-panel__subtitle:hover {
+  color: color-mix(in srgb, var(--accent, #9db4e8) 78%, #ffffff);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .info-panel__body {
   margin: 0;
