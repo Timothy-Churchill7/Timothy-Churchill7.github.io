@@ -1,0 +1,9 @@
+flask
+gunicorn
+pandas
+numpy
+scipy
+matplotlib
+openpyxl
+pillow
+scikit-image

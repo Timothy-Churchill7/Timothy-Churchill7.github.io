@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 5173
+      "name": "plotter",
+      "runtimeExecutable": "/Users/timothychurchill/Desktop/ClodCode/Plotter/venv/bin/python",
+      "runtimeArgs": ["/Users/timothychurchill/Desktop/ClodCode/Plotter/app.py"],
+      "autoPort": true,
+      "port": 5000
     }
   ]
 }

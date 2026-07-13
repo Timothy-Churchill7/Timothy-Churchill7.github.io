@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
-# Builds the Vite site and publishes the static output to the `gh-pages`
-# branch on every push to `main`. In the repo settings, set
+# Builds the Vite site in solarSystem/ and publishes its static output to the
+# `gh-pages` branch on every push to `main`. In the repo settings, set
 # Pages → Build and deployment → Source: "Deploy from a branch" → `gh-pages` / root.
 
 on:
@@ -28,15 +28,18 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: solarSystem/package-lock.json
 
       - name: Install dependencies
         run: npm ci
+        working-directory: solarSystem
 
       - name: Build
         run: npm run build
+        working-directory: solarSystem
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./solarSystem/dist

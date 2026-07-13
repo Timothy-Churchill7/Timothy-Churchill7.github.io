@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+uploads/
+.tem_tmp/
+static/outputs/*.png
+static/outputs/*.py
+static/outputs/*.ipynb

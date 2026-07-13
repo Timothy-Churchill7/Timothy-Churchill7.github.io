@@ -5,6 +5,14 @@ dist-ssr
 .DS_Store
 .vite
 
+# Python (Plotter/)
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
 # Editor
 .vscode/*
 !.vscode/extensions.json
