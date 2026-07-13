@@ -5,13 +5,8 @@ dist-ssr
 .DS_Store
 .vite
 
-# Python (Plotter/)
-venv/
-.venv/
-__pycache__/
-*.pyc
-*.pyo
-.pytest_cache/
+# Plotter is deployed separately (Render) — keep it local, out of this repo
+Plotter/
 
 # Editor
 .vscode/*
