@@ -1,73 +1,72 @@
-# Tim Churchill — Interactive Solar System Resume
+# Tim Churchill — Interactive Solar System Résumé
 
-A navigable 3D solar system that *is* my resume. Fly a free-roaming camera
-through space, approach planets (each a resume category), and click them to open
-info panels anchored in 3D next to each world. Built with React Three Fiber and
-deployed as fully static files to GitHub Pages — no backend of any kind.
+This is my résumé, rebuilt as a solar system you can fly through.
 
-## Tech
+Instead of a page of bullet points, my background is laid out as a small galaxy.
+The sun sits at the center, and each planet orbiting it is a part of who I am —
+education, work, leadership and service, research, athletics, skills, and finance.
+The larger planets have moons, and each moon is a specific chapter within that
+category: a job, a trip, a role. You pilot a free-flying camera through the
+system, pull up to whatever catches your eye, and click it to open a panel with
+the story behind it.
 
-- **React Three Fiber** + **drei** — 3D scene & helpers
-- **@react-three/postprocessing** — bloom / vignette
-- **Vite** — build tool
-- **GitHub Actions** — auto-deploy to the `gh-pages` branch on push to `main`
+The idea was to make a résumé that rewards curiosity — the more you explore, the
+more you find.
 
-## Develop
+## Experiencing it
 
-```bash
-npm install
-npm run dev      # http://localhost:5173
-npm run build    # -> dist/
-npm run preview  # preview the production build
-```
+The whole thing runs live in the browser as a real-time 3D scene. No video, no
+backend — just a static site doing everything on your machine.
 
-## Controls
+- **Click** anywhere to take the controls and start flying.
+- **WASD** to move, **Space / Shift** to rise and fall, **E** to boost, and the
+  **mouse** to look around.
+- Line a planet or moon up in the crosshair and **click** to fly to it and read
+  its panel.
+- Click the **×** or empty space to close a panel and get moving again; **Esc**
+  frees the mouse.
 
-- **Click** the scene to start flying (pointer lock)
-- **WASD** — move · **Space / Shift** — up / down · **E** — boost · **mouse** — look
-- Center a planet in the crosshair and **click** to open its info panel
-- Click the **×** or empty space to close and resume flying · **Esc** releases the mouse
+Fly slowly and look closely — a couple of things in the system only show
+themselves to people who take their time.
 
-## Editing content — the only file you need
+## How it's built
 
-Everything (planets, moons, colors, orbits, and all resume text) is driven by:
+- **React Three Fiber** + **drei** — the 3D scene, camera, and helpers, written
+  as ordinary React components.
+- **Three.js** — the WebGL engine doing the actual rendering underneath.
+- **@react-three/postprocessing** — the bloom and vignette that give space its glow.
+- **Vite** — bundles it all down to static HTML, CSS, and JavaScript.
 
-```
-src/data/planets.js
-```
+Every planet is a low-poly icosphere lit with flat shading, and each body's
+orbit, spin, and axial tilt are varied procedurally so no two move quite alike.
+Selecting a planet eases the camera onto a framed vantage point and quietly
+freezes that planet's orbit, so its panel stays put while you read.
 
-Add a planet, rename a section, recolor, reposition an orbit, or edit any
-resume bullet there — the scene updates automatically. You never need to touch
-the camera, interaction, or rendering code.
+## How it's put together
 
-Flight "feel" (speed, inertia, boundaries) lives in `src/config/camera.js`.
-
-## Swapping in real logos / textures
-
-Drop image files into `public/assets/planets/` using each planet's `slug`:
-
-```
-public/assets/planets/<slug>-icon.svg      # icon for the planet + panel
-public/assets/planets/<slug>-texture.jpg   # optional surface texture
-```
-
-(See `public/assets/planets/README.md`. Wiring these in is a small follow-up.)
-
-## Project structure
+The scene is entirely data-driven. Every planet, moon, color, orbit, and line of
+résumé text lives in one file — `src/data/planets.js` — and the 3D world reads
+that file and builds itself. The content and the code that draws it stay cleanly
+separated: adding a planet or rewriting a section never means touching the
+camera, controls, or rendering. Flight feel (speed, inertia, boundaries) is
+similarly isolated in `src/config/camera.js`.
 
 ```
 src/
-  App.jsx                     Canvas + HUD overlay + loading screen
-  config/camera.js            flight tuning (speed, inertia, boundaries)
-  data/planets.js             *** all content & layout live here ***
-  controls/SpaceshipControls  free-flight camera (pointer lock + inertia)
-  interaction/                click-to-select + selection state
-  scene/                      Sun, Starfield, Planets, Moon, InfoPanel, Effects
+  App.jsx            the canvas, HUD, and info-panel overlay
+  data/planets.js    all résumé content and layout — the single source of truth
+  config/camera.js   flight feel (speed, inertia, boundaries)
+  controls/          the free-flight, pointer-locked spaceship camera
+  interaction/       click-to-select and selection state
+  scene/             the sun, starfield, planets, moons, panels, and effects
 ```
 
-## Deployment
+The finished build is fully static and is hosted on GitHub Pages.
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site
-and publishes `dist/` to the `gh-pages` branch. In the repo's
-**Settings → Pages**, set the source to **Deploy from a branch → `gh-pages` / root**.
+## Running it locally
+
+```bash
+npm install
+npm run dev      # local dev server with hot reload
+npm run build    # produces the static site in dist/
 ```

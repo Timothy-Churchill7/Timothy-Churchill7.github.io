@@ -29,7 +29,6 @@ export default function Scene({
   onActivePanel,
   registerClose,
   onFaceMessage,
-  registerFace,
 }) {
   const [selected, setSelected] = useState(null)
   const [phase, setPhase] = useState('idle') // 'idle' | 'approaching' | 'open'
@@ -62,7 +61,7 @@ export default function Scene({
     (on) => {
       faceVisibleRef.current = on
       setFaceVisible(on)
-      onFaceMessage?.(on ? 'Tim sun activated' : 'Tim sun deactivated', on)
+      onFaceMessage?.(on ? 'Tim sun activated' : 'Tim sun deactivated')
     },
     [onFaceMessage],
   )
@@ -76,14 +75,10 @@ export default function Scene({
     onActivePanel?.(phase === 'open' ? selected : null)
   }, [phase, selected, onActivePanel])
 
-  // Let App's panel close button reach clearSelection, and the toast's
-  // "Deactivate" button turn the face off.
+  // Let App's panel close button reach clearSelection.
   useEffect(() => {
     registerClose?.(clearSelection)
   }, [registerClose, clearSelection])
-  useEffect(() => {
-    registerFace?.({ deactivate: () => setFace(false) })
-  }, [registerFace, setFace])
 
   return (
     <SelectionContext.Provider

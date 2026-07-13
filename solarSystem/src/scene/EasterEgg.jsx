@@ -15,7 +15,7 @@ const CROSS = 190 // half-width of the drift path
 const PERIOD = 60 // seconds to cross from one side to the other
 const APPEAR_DELAY = 30000 // ms before the egg first appears
 const Y = 32
-const Z = -95
+const Z = -190 // pushed twice as far into the background
 const RADIUS = 0.65 // base icosphere radius before the egg deformation
 
 // A faceted egg: start from a low-detail icosphere (same family as the planets),

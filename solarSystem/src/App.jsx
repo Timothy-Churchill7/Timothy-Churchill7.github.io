@@ -14,21 +14,17 @@ export default function App() {
   const [selected, setSelected] = useState(null)
   const [panelData, setPanelData] = useState(null)
   const [ready, setReady] = useState(false)
-  const [faceToast, setFaceToast] = useState(null) // { text, active }
+  const [faceToast, setFaceToast] = useState(null) // toast message string
   const closeRef = useRef(() => {})
-  const faceRef = useRef({ deactivate: () => {} })
   const toastTimer = useRef(null)
 
   const registerClose = useCallback((fn) => {
     closeRef.current = fn
   }, [])
-  const registerFace = useCallback((controls) => {
-    faceRef.current = controls
-  }, [])
 
   // Brief, self-fading toast whenever the sun face is toggled.
-  const onFaceMessage = useCallback((text, active) => {
-    setFaceToast({ text, active })
+  const onFaceMessage = useCallback((text) => {
+    setFaceToast(text)
     clearTimeout(toastTimer.current)
     toastTimer.current = setTimeout(() => setFaceToast(null), 2600)
   }, [])
@@ -52,7 +48,6 @@ export default function App() {
           onActivePanel={setPanelData}
           registerClose={registerClose}
           onFaceMessage={onFaceMessage}
-          registerFace={registerFace}
         />
       </Canvas>
 
@@ -77,15 +72,7 @@ export default function App() {
       {/* ---- Easter-egg toast ---- */}
       {faceToast && (
         <div className="face-toast">
-          <span>{faceToast.text}</span>
-          {faceToast.active && (
-            <button
-              className="face-toast__btn"
-              onClick={() => faceRef.current.deactivate()}
-            >
-              Deactivate
-            </button>
-          )}
+          <span>{faceToast}</span>
         </div>
       )}
 
