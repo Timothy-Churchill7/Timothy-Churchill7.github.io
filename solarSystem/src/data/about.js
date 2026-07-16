@@ -19,10 +19,8 @@ export const ABOUT_ME = {
       {
         heading: 'Hobbies & Interests',
         bullets: [
-          'Running — ideally on a trail or up a mountain',
-          'Backpacking — either alone or bringing friends with me into the wilderness',
-          'Games: board games, card games, and word games. My current favorite is Bananagrams',
-          'Geography stats & trivia',
+          'Running & Backpacking in the woods',
+          'Playing Bananagrams with my family',
           'Reading. My three favorite books are Cloud Cuckoo Land, Tuesdays with Morrie, and Harry Potter and the Chamber of Secrets — and I’m currently reading Anxious People by Fredrik Backman',
         ],
       },
