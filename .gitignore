@@ -5,9 +5,6 @@ dist-ssr
 .DS_Store
 .vite
 
-# Plotter is deployed separately (Render) — keep it local, out of this repo
-Plotter/
-
 # Editor
 .vscode/*
 !.vscode/extensions.json
