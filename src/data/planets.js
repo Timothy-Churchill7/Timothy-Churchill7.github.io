@@ -264,7 +264,7 @@ export const PLANETS = [
     content: {
       title: 'Leadership & Service',
       subtitle: '',
-      body: 'During my COVID freshman year of high school, I struggled with my mental health. Through a life changing backpacking trip and a strong support network, my sophomore year and beyond was much better. I carried with me a love for the outdoors and an appreciation for the resources I had access to, that not everyone does. Since then, my service work has been defined by two themes: working to connect people (friends, family, strangers) to the outdoors and provide them with physical and mental health support. I’ve learned how and when to lend a kind ear and I’ve seen people transform over three days in the forest. I’ve served my Amherst community as an EMT and helped people cross a language barrier to communicate their stress, their desires, and their life stories for their asylum cases.',
+      body: 'The summer after my freshman year of high school, I went on a life changing backpacking trip. I carried with me a love for the outdoors and an appreciation for mental health resources I had access to, that not everyone does. Since then, my service work has been defined by two themes: working to connect people (friends, family, strangers) to the outdoors and provide them with physical and mental health support. I’ve learned how and when to lend a kind ear and I’ve seen people transform over three days in the forest. I’ve served my Amherst community as an EMT and helped people cross a language barrier to communicate their stress, their desires, and their life stories for their asylum cases.',
     },
     moons: [
       {
