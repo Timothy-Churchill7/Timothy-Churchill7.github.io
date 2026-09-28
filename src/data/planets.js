@@ -301,12 +301,12 @@ export const PLANETS = [
         content: {
           title: 'Samaritans Crisis Services — Helpline Volunteer',
           subtitle: 'August 2023–May 2024, Jul 2026 - Present',
-          body: ['Samaritans was my first real volunteer experience. I did my training over the summer and started answering the phone as the school year began. The combination of high pressure conversations and an inevitable reminder of my own experiences made it simultaneously one of the most stressful and rewarding parts of my life, but after a year I had to step away.',
-          'Years later, I am once again beginning refresher training to get back on the line as a completely different person, because every day I look around and feel grateful towards the people around me--something that not everyone has.',
+          body: ['Samaritans was my first real volunteer experience. I did my training over the summer and started answering the phone as the school year began. The combination of high pressure conversations and an inevitable reminder of my own experiences made it simultaneously one of the most stressful and rewarding parts of my life.',
+          'Years later, I am once again beginning refresher training to get back on the line.',
           ],
 
           bullets: [
-            '**Personal Shoutout:** The Callers and the Responders',
+            '**Personal Shoutout:** My fellow volunteers',
           ],
         },
       },
