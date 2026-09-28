@@ -56,7 +56,6 @@ export const PLANETS = [
           body: [
             'To me, Amherst represented a chance to explore a wide variety of interests in a place that puts community above all else and has a culture not just of doing well, but of doing good.',
             'Amherst also appealed to me athletically because being able to run as part of a Division III program lets me compete at a high level without sacrificing the things that are most important to me in my college experience: academic rigor and excitement, community involvement, and having the time to relax and enjoy my college experience.',
-            'So far, I have a 3.9/4.0 GPA and my favorite classes have been The Cinema of Pedro Almodóvar (Spanish) and Groups, Rings, and Fields (Math).',
             'I have loved my college experience up to this point and I am so grateful to all my friends and professors that have made it what it is so far.',
 
           ],
@@ -101,8 +100,8 @@ export const PLANETS = [
                     'We backpacked through the Andes, watched a rally race and talked to the drivers, and became a part of families for weeks at a time. Along the way, we improved our Spanish and learned how to say some important things in Quechua.',
                   ],
               bullets: [
-                '**Favorite Memory:** Playing fútbol and chewing Coca with my homestay brother Romario and his friends',
-                '**Personal Shoutout:** My three instructors, Yim, Maren, and Jose, and the eight other kids I took the journey with. (Even Rory) ',
+                '**Favorite Memory:** Playing soccer and chewing Coca with my homestay brother and his friends',
+                '**Personal Shoutout:** My three instructors, Yim, Maren, and Jose, and the eight other kids on my program.  ',
                 '**Favorite Place:** Sleeping under the stars in the Quelccaya Glacier, on the last day of the last trek right at the end of our semester',
                 '**Worst Memory:** Food poisoning on the 100º, 12 hour night bus from Lake Titicaca to Puerto Maldonado',
                 '**Favorite Quechua Word:** Tuyusiki',
@@ -134,7 +133,7 @@ export const PLANETS = [
             },
             {
               heading: 'Summer',
-              body: ['My Summer was slower. I spent my days training for the Amherst XC tryout process in the fall and spending time with my family after being away for so long.',
+              body: ['I spent my days training for the Amherst XC tryout process in the fall and spending time with my family.',
                     'After seeing the immigration enforcement campaign on the news, this is when I began working with an immigration attorney doing interpretation/translation work to help her communicate with non-English speaking clients.',],
               bullets: [
                 '**Favorite Memory:** Taking a sailboat out in a hurricane with my dad and uncle',
