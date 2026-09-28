@@ -371,7 +371,7 @@ export const PLANETS = [
           title: 'Spanish Translation & Interpretation — K.I.N.D.',
           subtitle: 'June 2025–Present',
           body: ['As the Summer of 2025 progressed and the ICE crackdown intensified, I was horrified. As a naturalized U.S. Citizen I was safe, but I had friends from work and travel that weren\'t. I decided to contribute what I could. For me, that was my Spanish.',
-            'I completed Spanish fluency testing and began to interpret live and on the phone for a local volunteer immigration attorney and her client. I also signed up to be an on-call document translator for court proceedings, which I have been doing since then.',
+            'I completed Spanish fluency testing and began to interpret live and on the phone for a local volunteer immigration attorney and her clients. I also signed up to be an on-call document translator for court proceedings, which I have been doing since then.',
           ],
           bullets: [
             '**Personal Shoutout:** Celia',
@@ -422,8 +422,8 @@ export const PLANETS = [
       title: 'Athletics',
       subtitle: 'September 2025–Present',
       body: [
-        'I walked on to Division III cross country and track & field after trying — and failing — to be recruited out of high school. Part of the motivation for taking a gap year was to keep developing as a runner and improve my odds of making the team.',
-        'But I performed well enough at the tryouts to make it, and now I commit 20+ hours a week to ACXC. Being on the team has been a source of camaraderie, accountability, and spirit that has greatly enhanced my college experience so far.',
+        'I walked on to Division III cross country and track & field at Amherst College. Part of the motivation for taking a gap year was to keep developing as a runner and improve my odds of having a successful tryout process.',
+        'I commit 20+ hours a week to ACXC. Being on the team has been a source of camaraderie, accountability, and spirit that has added significantly to my time at Amherst.',
       ],
       bullets: [
         '**Favorite Memory:** The 4x800m at the 2026 NESCAC Championship',
