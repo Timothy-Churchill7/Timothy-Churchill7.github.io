@@ -9,6 +9,10 @@ import { INITIAL_CAMERA } from './config/camera.js'
 // easter-egg "Tim sun" toast.
 // ---------------------------------------------------------------------------
 
+// Built into the 2D site at /3d/ (VITE_SUBSITE=1): show a way back to it.
+// The standalone build doesn't show it, since there is nothing to go back to.
+const IN_2D_SITE = import.meta.env.VITE_SUBSITE === '1'
+
 export default function App() {
   const [locked, setLocked] = useState(false)
   const [selected, setSelected] = useState(null)
@@ -79,6 +83,12 @@ export default function App() {
       {/* ---- HUD overlay ---- */}
       <div className="hud">
         <div className="hud__badge">Tim Churchill · Solar System</div>
+        {IN_2D_SITE && (
+          // stopPropagation: drei's pointer lock listens for clicks on the whole document
+          <a className="hud__back" href="../" onClick={(e) => e.stopPropagation()}>
+            ← 2d
+          </a>
+        )}
 
         {/* Flight crosshair — only while piloting. */}
         {locked && <div className="hud__reticle" />}

@@ -81,6 +81,24 @@ canvas {
   text-transform: uppercase;
 }
 
+/* back to the 2D site (only in the /3d/ build) */
+.hud__back {
+  position: absolute;
+  top: 26px;
+  right: 30px;
+  color: var(--hud-fg-dim);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  pointer-events: auto;
+  transition: color 0.2s;
+}
+.hud__back:hover,
+.hud__back:focus-visible {
+  color: var(--hud-fg);
+}
+
 /* ---- Floating 3D labels attached to planets/moons (drei <Html>) ---- */
 .planet-label {
   pointer-events: none;
